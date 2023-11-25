@@ -13,7 +13,6 @@ public class PlayerMovement : MonoBehaviour
         _rigidBody.freezeRotation = true;
     }
 
-    // Update is called once per frame
     void Update()
     {
         float deltaX = Input.GetAxis("Horizontal") * _speed * Time.deltaTime;

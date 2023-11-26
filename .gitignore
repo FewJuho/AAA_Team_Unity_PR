@@ -1,0 +1,5 @@
+# Игнорирование Third Party Notices.md и ValidationConfig.json для пакета com.unity.collab-proxy
+Library/PackageCache/com.unity.collab-proxy*/
+
+# Игнорирование временных файлов
+Temp/

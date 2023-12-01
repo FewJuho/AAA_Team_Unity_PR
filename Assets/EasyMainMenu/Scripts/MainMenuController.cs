@@ -115,11 +115,12 @@ public class MainMenuController : MonoBehaviour {
 
     public void newGame(int level)
     {
-        // if (!string.IsNullOrEmpty(newGameSceneName))
-        //     SceneManager.LoadScene(newGameSceneName);
-        // else
-        //     Debug.Log("New game is unavailable");
         Debug.Log("New game is level: " + level.ToString());
+        DataHolder._level = level;
+        if (level == 1)
+            SceneManager.LoadScene("LunarLandscape3D");
+        else
+            Debug.LogError("BUG: level not loaded, check MainMenuController.newGame");
     }
 
     public void Quit()

@@ -19,7 +19,7 @@ public class MainMenuController : MonoBehaviour {
     public GameObject GfxPanel;
     public GameObject LoadGamePanel;
 
-    public int openLevels = 1;
+    public int openLevels;
     public Text openLevelsText;
     private int GlobalLevelCount = 6;
 
@@ -27,12 +27,12 @@ public class MainMenuController : MonoBehaviour {
     void Start () {
         anim = GetComponent<Animator>();
 
+        openLevels = DataHolder._openLevels;
+
         // //new key
         // PlayerPrefs.SetInt("quickSaveSlot", quickSaveSlotID);
 
         openLevelsText.text = openLevels.ToString();
-
-        Debug.Log("openLevels: " + openLevels.ToString());
     }
 
 
@@ -116,7 +116,7 @@ public class MainMenuController : MonoBehaviour {
     public void newGame(int level)
     {
         Debug.Log("New game is level: " + level.ToString());
-        DataHolder._level = level;
+        DataHolder._currentLevel = level;
         if (level == 1)
             SceneManager.LoadScene("LunarLandscape3D");
         else
@@ -126,7 +126,12 @@ public class MainMenuController : MonoBehaviour {
     public void Quit()
     {
         Debug.Log("Quit selected");
+        
+        #if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+        #else
         Application.Quit();
+        #endif
     }
 
     // ------ Back Buttons --------
@@ -158,12 +163,14 @@ public class MainMenuController : MonoBehaviour {
     public void openLevelsPlus()
     {
         openLevels += 1;
+        DataHolder._openLevels = openLevels;
         openLevelsText.text = openLevels.ToString();
     }
 
     public void openLevelsMinus()
     {
         openLevels -= 1;
+        DataHolder._openLevels = openLevels;
         openLevelsText.text = openLevels.ToString();
     }
 

@@ -7,13 +7,7 @@ public class GameManager_level_1 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        int info = DataHolder._level;
-        Debug.Log("Current level LunarLandscape3D id : " + info.ToString());
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        int info = DataHolder._currentLevel;
+        Debug.Log("Current level LunarLandscape3D id : " + info.ToString());   
     }
 }

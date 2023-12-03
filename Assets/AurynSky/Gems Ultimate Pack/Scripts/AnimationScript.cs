@@ -35,7 +35,7 @@ public class AnimationScript : MonoBehaviour {
 
        
         
-        if(isAnimated)
+        if(!DataHolder._globalPause && isAnimated)
         {
             if(isRotating)
             {

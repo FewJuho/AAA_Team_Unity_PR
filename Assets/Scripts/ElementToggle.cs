@@ -5,6 +5,10 @@ public class ElementToggle : MonoBehaviour
     public GameObject element;
     public KeyCode toggleKey = KeyCode.Tab;
 
+    private void Start()
+    {
+        element.SetActive(false);
+    }
     void Update()
     {
         // Проверяем, была ли нажата клавиша Tab

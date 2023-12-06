@@ -1,4 +1,6 @@
+# Custom section
 .DS_Store
+/.vscode/
 
 # This .gitignore file should be placed at the root of your Unity project directory
 #

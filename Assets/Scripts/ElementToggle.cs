@@ -31,6 +31,10 @@ public class ElementToggle : MonoBehaviour
         help.transform.Find("Text").GetComponent<Text>().text = DataHolder._helpText;
     }
 
+    private void Start()
+    {
+        element.SetActive(false);
+    }
     void Update()
     {
         // Tab

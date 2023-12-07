@@ -8,19 +8,19 @@ public class ElementToggle : MonoBehaviour
 {
     Animator anim;
 
-    public GameObject element;
+    public GameObject radialMenu;
     public KeyCode toggleKey = KeyCode.Tab;
     public GameObject pauseMenu;
     public static bool gameIsPaused = false;
     public GameObject animationHelper;
     public GameObject stats;
     public GameObject help;
-    
+    public static bool weaponMenuOpen = false;
 
     void Start() {
         anim = GetComponent<Animator>();
 
-        element.SetActive(false);
+        radialMenu.SetActive(false);
 
         pauseMenu.SetActive(false);
         animationHelper.SetActive(false);
@@ -36,13 +36,25 @@ public class ElementToggle : MonoBehaviour
         // Tab
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            element.SetActive(!element.activeSelf);
+            radialMenu.SetActive(!radialMenu.activeSelf);
+            if (!weaponMenuOpen)
+            {
+                DataHolder._stopMouseFollowing = true;
+                Cursor.lockState = CursorLockMode.None;
+                gameIsPaused = true;
+                weaponMenuOpen = true;
+            } else
+            {
+                Resume();
+                weaponMenuOpen = false;
+                gameIsPaused = false;
+            }
         }
 
         // Escape
         if (Input.GetKeyDown(KeyCode.Escape)) 
         {
-            element.SetActive(false);
+            radialMenu.SetActive(false);
             if (gameIsPaused)
                 Resume();
             else 
@@ -54,6 +66,7 @@ public class ElementToggle : MonoBehaviour
     {
         stats.SetActive(true);
         DataHolder._globalPause = false;
+        radialMenu.SetActive(false);
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
         gameIsPaused = false;
@@ -66,6 +79,15 @@ public class ElementToggle : MonoBehaviour
         stats.SetActive(false);
         DataHolder._globalPause = true;
         pauseMenu.SetActive(true);
+        Time.timeScale = 0f;
+        gameIsPaused = true;
+        DataHolder._stopMouseFollowing = true;
+        Cursor.lockState = CursorLockMode.None;
+    }
+
+    public void PauseWeaponPicking()
+    {
+        DataHolder._globalPause = true;
         Time.timeScale = 0f;
         gameIsPaused = true;
         DataHolder._stopMouseFollowing = true;

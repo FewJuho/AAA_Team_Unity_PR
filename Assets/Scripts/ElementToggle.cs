@@ -39,15 +39,17 @@ public class ElementToggle : MonoBehaviour
             radialMenu.SetActive(!radialMenu.activeSelf);
             if (!weaponMenuOpen)
             {
+                Time.timeScale = 0f;
+                weaponMenuOpen = true;
                 DataHolder._stopMouseFollowing = true;
                 Cursor.lockState = CursorLockMode.None;
-                gameIsPaused = true;
-                weaponMenuOpen = true;
             } else
             {
-                Resume();
                 weaponMenuOpen = false;
-                gameIsPaused = false;
+                radialMenu.SetActive(false);
+                Time.timeScale = 1f;
+                DataHolder._stopMouseFollowing = false;
+                Cursor.lockState = CursorLockMode.Locked;
             }
         }
 
@@ -79,15 +81,6 @@ public class ElementToggle : MonoBehaviour
         stats.SetActive(false);
         DataHolder._globalPause = true;
         pauseMenu.SetActive(true);
-        Time.timeScale = 0f;
-        gameIsPaused = true;
-        DataHolder._stopMouseFollowing = true;
-        Cursor.lockState = CursorLockMode.None;
-    }
-
-    public void PauseWeaponPicking()
-    {
-        DataHolder._globalPause = true;
         Time.timeScale = 0f;
         gameIsPaused = true;
         DataHolder._stopMouseFollowing = true;

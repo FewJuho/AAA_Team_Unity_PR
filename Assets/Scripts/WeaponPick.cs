@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class WeaponSwitcher : MonoBehaviour
+public class WeaponPick : MonoBehaviour
 {
     public GameObject weapon1;
     public GameObject weapon2;

@@ -15,7 +15,6 @@ public class ElementToggle : MonoBehaviour
     public GameObject animationHelper;
     public GameObject stats;
     public GameObject help;
-    public static bool weaponMenuOpen = false;
 
     void Start() {
         anim = GetComponent<Animator>();
@@ -36,16 +35,16 @@ public class ElementToggle : MonoBehaviour
         // Tab
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            radialMenu.SetActive(!radialMenu.activeSelf);
-            if (!weaponMenuOpen)
+            if (!DataHolder._weaponMenuOpen)
             {
+                radialMenu.SetActive(true);
                 Time.timeScale = 0f;
-                weaponMenuOpen = true;
+                DataHolder._weaponMenuOpen = true;
                 DataHolder._stopMouseFollowing = true;
                 Cursor.lockState = CursorLockMode.None;
             } else
             {
-                weaponMenuOpen = false;
+                DataHolder._weaponMenuOpen = false;
                 radialMenu.SetActive(false);
                 Time.timeScale = 1f;
                 DataHolder._stopMouseFollowing = false;

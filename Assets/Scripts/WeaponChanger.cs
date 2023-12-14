@@ -9,6 +9,7 @@ public class WeaponTEST : MonoBehaviour
     public GameObject rifle;
     public GameObject shotgun;
     public GameObject radialMenu;
+    public GameObject crosshair;
 
     void Start()
     {
@@ -63,6 +64,7 @@ public class WeaponTEST : MonoBehaviour
         Time.timeScale = 1f;
         DataHolder._stopMouseFollowing = false;
         Cursor.lockState = CursorLockMode.Locked;
+        crosshair.SetActive(DataHolder._activateCrosshair);
     }
 
     void ShowWeapon(GameObject weapon)

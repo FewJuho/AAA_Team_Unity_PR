@@ -9,6 +9,7 @@ public class ElementToggle : MonoBehaviour
     Animator anim;
 
     public GameObject radialMenu;
+    public GameObject crosshair;
     public KeyCode toggleKey = KeyCode.Tab;
     public GameObject pauseMenu;
     public static bool gameIsPaused = false;
@@ -20,7 +21,7 @@ public class ElementToggle : MonoBehaviour
         anim = GetComponent<Animator>();
 
         radialMenu.SetActive(false);
-
+        crosshair.SetActive(DataHolder._activateCrosshair);
         pauseMenu.SetActive(false);
         animationHelper.SetActive(false);
         stats.SetActive(true); // copy in StatsManager
@@ -38,6 +39,7 @@ public class ElementToggle : MonoBehaviour
             if (!DataHolder._weaponMenuOpen)
             {
                 radialMenu.SetActive(true);
+                crosshair.SetActive(false);
                 Time.timeScale = 0f;
                 DataHolder._weaponMenuOpen = true;
                 DataHolder._stopMouseFollowing = true;
@@ -45,6 +47,7 @@ public class ElementToggle : MonoBehaviour
             } else
             {
                 DataHolder._weaponMenuOpen = false;
+                crosshair.SetActive(DataHolder._activateCrosshair);
                 radialMenu.SetActive(false);
                 Time.timeScale = 1f;
                 DataHolder._stopMouseFollowing = false;

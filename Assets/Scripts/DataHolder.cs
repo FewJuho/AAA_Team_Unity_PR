@@ -4,6 +4,11 @@ using UnityEngine;
 
 public static class DataHolder
 {
+
+    enum Weapons
+    {
+        pistol, hammer, 
+    }
     // System settings
     public static int _currentLevel;
     public static int _openLevels = 1;

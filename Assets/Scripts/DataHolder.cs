@@ -4,11 +4,6 @@ using UnityEngine;
 
 public static class DataHolder
 {
-
-    enum Weapons
-    {
-        pistol, hammer, 
-    }
     // System settings
     public static int _currentLevel;
     public static int _openLevels = 1;
@@ -26,4 +21,40 @@ public static class DataHolder
     public static int currentHP = 1200;
     public static int bulletCount = 10;
     public static string[] weaponTypes = {"Fi", "Se"};
+
+    public static int _healsCount = 0;
+    public static int _ShieldCount = 0;
+}
+
+public static class _Hammer
+{
+    public static int damage = 100;
+    public static int ammoPrice = 0;
+    public static int rangeRadius = 1;
+}
+
+public static class _Shotgun
+{
+    public static int damage = 50;
+    public static int ammoPrice = 5;
+    public static int rangeRadius = 10;
+
+    public static int getScaler(GameObject target)
+    {
+        return 1;
+    }
+}
+
+public static class _Pistol
+{
+    public static int damage = 25;
+    public static int ammoPrice = 2;
+    public static int rangeRadius = 10;
+}
+
+public static class _Rifle
+{
+    public static int damage = 10;
+    public static int ammoPrice = 1;
+    public static int rangeRadius = 10;
 }

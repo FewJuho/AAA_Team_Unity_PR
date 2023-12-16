@@ -64,6 +64,9 @@ public class ElementToggle : MonoBehaviour
             else 
                 Pause();            
         }
+
+        BonusLogic.UpdateDamageMultiplier();
+        BonusLogic.UpdateJatpack();
     }
 
     public void Resume() 

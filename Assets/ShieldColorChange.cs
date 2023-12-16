@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class ChangeMaterialOnHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class ShieldColorChange : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public Material YESMaterial; // Новый материал при наведении
     public Material NOMaterial;
@@ -38,7 +38,7 @@ public class ChangeMaterialOnHover : MonoBehaviour, IPointerEnterHandler, IPoint
 
     public void RestartColors()
     {
-        if (DataHolder.bulletCount == 0)
+        if (DataHolder._shieldsCount == 0)
         {
             buttonImage.material = NOMaterial;
         }

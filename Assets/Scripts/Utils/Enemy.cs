@@ -5,7 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public int healthPoints = 100; // TODO: different enemies?
-    public float speed = 1.0f;
+    public float speed = 2.0f;
     public int hitDamage = 50;
 
     public GameObject ammoPrefab;

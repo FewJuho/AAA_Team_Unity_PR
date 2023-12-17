@@ -2298,7 +2298,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthPoints: 100
-  speed: 1
+  speed: 2
   hitDamage: 50
   ammoPrefab: {fileID: 1893084404789564, guid: 80fd2cce9b40b014c86e67da5c626713, type: 3}
 --- !u!65 &4421906366227782454

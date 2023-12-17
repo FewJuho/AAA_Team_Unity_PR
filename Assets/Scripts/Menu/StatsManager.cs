@@ -7,10 +7,10 @@ using UnityEngine.SceneManagement;
 
 public class StatsManager : MonoBehaviour
 {
-    // Animator anim;
     public GameObject stats;
     public GameObject hp;
     public GameObject bullets;
+    public ElementToggle elementToggle;
 
     [System.NonSerialized] public int maxHP;
     [System.NonSerialized] public int currentHP;
@@ -19,8 +19,6 @@ public class StatsManager : MonoBehaviour
     
 
     void Start() {
-        // anim = GetComponent<Animator>();
-
         stats.SetActive(true);  // copy in ElementToggle
     }
 
@@ -43,7 +41,9 @@ public class StatsManager : MonoBehaviour
         weaponTypes = DataHolder.weaponTypes;
 
         if (currentHP == 0) {
-            Debug.LogError("You are dead!"); // TODO delete
+            elementToggle.gameLose();
+            DataHolder.currentHP = -1;
+            // Debug.LogError("You are dead!"); // TODO delete
         }
 
         // Apply changes to game objects
@@ -58,6 +58,9 @@ public class StatsManager : MonoBehaviour
 
     public void minusHP(int hpCount) {
         DataHolder.currentHP = Math.Max(DataHolder.currentHP - hpCount, 0);
+        if (DataHolder.currentHP > 0) {
+            elementToggle.playDamageLightAnim();
+        }
     }
 
     public void minusBullets(int bulletCount) {

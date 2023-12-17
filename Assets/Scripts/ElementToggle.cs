@@ -30,6 +30,7 @@ public class ElementToggle : MonoBehaviour
         gameIsPaused = false;
         help.SetActive(false);
         gameOver.SetActive(false);
+        DataHolder.currentHP = DataHolder.maxHP;
 
         help.transform.Find("Text").GetComponent<Text>().text = DataHolder._helpText;
     }

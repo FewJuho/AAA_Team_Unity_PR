@@ -71,7 +71,7 @@ Material:
     m_Colors:
     - _Color: {r: 0.11151922, g: 1, b: 0, a: 1}
     - _HitColor: {r: 0.006026864, g: 1, b: 0, a: 1}
-    - _HitPosition: {r: -0.000000031800873, g: 0.16240178, b: -0.47289073, a: 0}
+    - _HitPosition: {r: 0.09237856, g: 0.32731152, b: -0.36651516, a: 0}
     - _IntersectColor: {r: 1, g: 1, b: 1, a: 1}
     - _ShieldPatternColor: {r: 0, g: 0.754717, b: 0.018636776, a: 1}
     - _SpecColor: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}

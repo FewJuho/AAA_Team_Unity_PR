@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ShieldCollision : MonoBehaviour
 {
-
     [SerializeField] string[] _collisionTag;
     float hitTime;
     Material mat;

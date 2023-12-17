@@ -13,6 +13,7 @@ public class WeaponTEST : MonoBehaviour
 
     void Start()
     {
+        DataHolder.currentWeapon = Weapon.Type.None;
         HideWeapon(hammer);
         HideWeapon(pistol);
         HideWeapon(rifle);
@@ -22,6 +23,7 @@ public class WeaponTEST : MonoBehaviour
 
     public void SetHammer()
     {
+        DataHolder.currentWeapon = Weapon.Type.Hammer;
         ShowWeapon(hammer);
         HideWeapon(pistol);
         HideWeapon(rifle);
@@ -31,6 +33,7 @@ public class WeaponTEST : MonoBehaviour
 
     public void SetPistol()
     {
+        DataHolder.currentWeapon = Weapon.Type.Pistol;
         HideWeapon(hammer);
         ShowWeapon(pistol);
         HideWeapon(rifle);
@@ -40,6 +43,7 @@ public class WeaponTEST : MonoBehaviour
 
     public void SetRifle()
     {
+        DataHolder.currentWeapon = Weapon.Type.Rifle;
         HideWeapon(hammer);
         HideWeapon(pistol);
         ShowWeapon(rifle);
@@ -49,6 +53,7 @@ public class WeaponTEST : MonoBehaviour
 
     public void SetShotgun()
     {
+        DataHolder.currentWeapon = Weapon.Type.Shotgun;
         HideWeapon(hammer);
         HideWeapon(pistol);
         HideWeapon(rifle);

@@ -5,8 +5,11 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public int healthPoints = 100; // TODO: different enemies?
-    public float speed = 2.5f;
-    public int hitDamage = 10;
+
+    public float speed = 2.0f;
+    public int hitDamage = 50;
+    public GameObject ammoPrefab;
+
     private GameObject _player;
 
     void Start()
@@ -29,6 +32,7 @@ public class Enemy : MonoBehaviour
             // TODO: add animation before nonexistence
             ++DataHolder.killedEnemiesCount;
             Debug.Log("Kill " + DataHolder.killedEnemiesCount.ToString());
+            Instantiate(ammoPrefab, this.transform.position,  Quaternion.identity);
             Destroy(this.transform.gameObject);
         }
     }

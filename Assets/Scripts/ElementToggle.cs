@@ -16,8 +16,10 @@ public class ElementToggle : MonoBehaviour
     public GameObject animationHelper;
     public GameObject stats;
     public GameObject help;
+    public GameObject gameOver;
 
-    void Start() {
+    void Start() 
+    {
         anim = GetComponent<Animator>();
 
         radialMenu.SetActive(false);
@@ -27,6 +29,8 @@ public class ElementToggle : MonoBehaviour
         stats.SetActive(true); // copy in StatsManager
         gameIsPaused = false;
         help.SetActive(false);
+        gameOver.SetActive(false);
+        DataHolder.currentHP = DataHolder.maxHP;
 
         help.transform.Find("Text").GetComponent<Text>().text = DataHolder._helpText;
     }
@@ -75,6 +79,7 @@ public class ElementToggle : MonoBehaviour
         DataHolder._globalPause = false;
         radialMenu.SetActive(false);
         pauseMenu.SetActive(false);
+        crosshair.SetActive(DataHolder._activateCrosshair);
         Time.timeScale = 1f;
         gameIsPaused = false;
         DataHolder._stopMouseFollowing = false;
@@ -86,18 +91,62 @@ public class ElementToggle : MonoBehaviour
         stats.SetActive(false);
         DataHolder._globalPause = true;
         pauseMenu.SetActive(true);
+        crosshair.SetActive(false);
         Time.timeScale = 0f;
         gameIsPaused = true;
         DataHolder._stopMouseFollowing = true;
         Cursor.lockState = CursorLockMode.None;
     }
 
-    public void Help() {
+    public void Help() 
+    {
         help.SetActive(true);
     }
 
-    public void closeHelp() {
+    public void closeHelp() 
+    {
         help.SetActive(false);
+    }
+
+    public void gameIsOver() 
+    {
+        stats.SetActive(false);
+        radialMenu.SetActive(false);
+        crosshair.SetActive(false);
+        pauseMenu.SetActive(false);
+
+        DataHolder._globalPause = false;
+        Time.timeScale = 1f;
+        gameIsPaused = false;
+        DataHolder._stopMouseFollowing = false;
+        Cursor.lockState = CursorLockMode.None;
+        
+        gameOver.SetActive(true);
+        anim.StopPlayback();
+        anim.Play("GameOverOn");
+
+        // Start the coroutine to wait for the animation
+        StartCoroutine(LoadMenuAfterAnimation());
+    }
+
+    public void gameWin()
+    {
+        gameOver.transform.Find("Text").GetComponent<Text>().text = "Congratulations!";
+        if (DataHolder._currentLevel == DataHolder._openLevels) {
+            DataHolder._openLevels += 1;
+        }
+        gameIsOver();
+    }
+
+    public void gameLose()
+    {
+        gameOver.transform.Find("Text").GetComponent<Text>().text = "Game over";
+        gameIsOver();
+    }
+
+    public void playDamageLightAnim() 
+    {
+        anim.Play("DamageLightOn", -1, 0f);
     }
 
     public void MenuScene() 
@@ -116,7 +165,7 @@ public class ElementToggle : MonoBehaviour
     private IEnumerator LoadMenuAfterAnimation()
     {
         // Wait until the current animation is complete
-        yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length);
+        yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length + 1);
 
         SceneManager.LoadScene("MainMenu");
     }

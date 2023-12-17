@@ -8,13 +8,12 @@ public class Shooting : MonoBehaviour
 
     private Camera _camera;
 
-    // Start is called before the first frame update
+
     void Start()
     {
         _camera = GetComponent<Camera>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         // if (!Input.GetMouseButton(0)) {
@@ -24,12 +23,13 @@ public class Shooting : MonoBehaviour
 
         Debug.Assert(DataHolder.bulletCount >= 0);
         if (0 == DataHolder.bulletCount) {
+            Debug.Log("ran out of bullets");
             // Do nothing now
             // TODO: add sound effect?
             return;
         }
 
-        // Debug.Log("Shoot");
+        Debug.Log("Shoot");
         --DataHolder.bulletCount;
 
         Vector3 screen_center = new Vector3(Screen.width / 2, Screen.height / 2, 0);

@@ -5,7 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public int healthPoints = 100; // TODO: different enemies?
-    public float speed = 5.0f;
+    public float speed = 2.5f;
     public int hitDamage = 10;
     private GameObject _player;
 
@@ -27,6 +27,8 @@ public class Enemy : MonoBehaviour
         healthPoints -= damage;
         if (healthPoints <= 0) {
             // TODO: add animation before nonexistence
+            ++DataHolder.killedEnemiesCount;
+            Debug.Log("Kill " + DataHolder.killedEnemiesCount.ToString());
             Destroy(this.transform.gameObject);
         }
     }

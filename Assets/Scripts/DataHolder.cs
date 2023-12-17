@@ -17,8 +17,9 @@ public static class DataHolder
     "2) lower your Bullet count by pressing \"B\" on your keyboard";
 
     // Game settings
-    public static int maxHP = 1200;
+    public const int maxHP = 1200;
     public static int currentHP = 1200;
     public static int bulletCount = 10;
+    public const int bulletCountAtCrate = 5;
     public static string[] weaponTypes = {"Fi", "Se"};
 }

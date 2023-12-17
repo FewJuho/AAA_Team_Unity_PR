@@ -7,8 +7,6 @@ public class Shooting : MonoBehaviour
     public int damage = 42; // TODO: use different guns
 
     private Camera _camera;
-    public int ammo = 100;
-
 
     // Start is called before the first frame update
     void Start()
@@ -19,19 +17,20 @@ public class Shooting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!Input.GetMouseButton(0)) {
+        // if (!Input.GetMouseButton(0)) {
+        if (!Input.GetMouseButtonDown(0)) {
             return;
         }
 
-        Debug.Assert(ammo >= 0);
-        if (0 == ammo) {
+        Debug.Assert(DataHolder.bulletCount >= 0);
+        if (0 == DataHolder.bulletCount) {
             // Do nothing now
             // TODO: add sound effect?
             return;
         }
 
-        Debug.Log("Shoot");
-        --ammo;
+        // Debug.Log("Shoot");
+        --DataHolder.bulletCount;
 
         Vector3 screen_center = new Vector3(Screen.width / 2, Screen.height / 2, 0);
         Ray ray = _camera.ScreenPointToRay(screen_center);
@@ -39,7 +38,7 @@ public class Shooting : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit)) {
             GameObject hitted_object = hit.transform.gameObject;
-            Debug.Log("Hit " + hitted_object.name);
+            Debug.Log("Hit " + hitted_object.name + " at distance " + hit.distance.ToString());
 
             Enemy enemy = hitted_object.GetComponent<Enemy>();
             if (null != enemy) {

@@ -4,53 +4,84 @@ using UnityEngine;
 
 public class Shooting : MonoBehaviour
 {
-    public int damage = 42; // TODO: use different guns
-
     private Camera _camera;
     [SerializeField] GameObject _bullet;
     [SerializeField] Transform _gunNozzle;
     [SerializeField] Vector3 targetPoint;
 
-    // Start is called before the first frame update
     void Start()
     {
         _camera = GetComponent<Camera>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButton(0))
-        {
-            Debug.Assert(DataHolder.bulletCount >= 0);
-            if (0 == DataHolder.bulletCount)
-            {
-                Debug.Log("ran out of bullets");
-                return;
-            }
+        var currentWeapon = Weapon.FromType(DataHolder.currentWeapon);
 
-            Ray ray = _camera.ScreenPointToRay(targetPoint);
+        if (!currentWeapon.IsShooting()) {
+            return;
+        }
 
-            RaycastHit hit;
-            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 100.0f))
-            {
-                targetPoint = hit.point;
-                GameObject hitted_object = hit.transform.gameObject;
-                Debug.Log("Hit " + hitted_object.name);
-                GameObject bullet = GameObject.Instantiate(_bullet, _gunNozzle.position, _gunNozzle.rotation);
-                bullet.GetComponent<LaserBullet>().GetPoint(targetPoint);
+        Debug.Assert(DataHolder.bulletCount >= 0);
+        if (DataHolder.bulletCount < currentWeapon.GetAmmoPrice()) {
+            Debug.Log("ran out of bullets");
+            // Do nothing now
+            // TODO: add sound effect?
+            return;
+        }
 
-                Enemy enemy = hitted_object.GetComponent<Enemy>();
-                if (null != enemy)
-                {
-                    enemy.ReactToDamage(damage);
-                }
+        Debug.Log("Shoot");
+        DataHolder.bulletCount -= currentWeapon.GetAmmoPrice();
 
-                Debug.DrawLine(ray.origin, ray.GetPoint(10), Color.red, 5);
+        Vector3 screen_center = new Vector3(Screen.width / 2, Screen.height / 2, 0);
+        Ray ray = _camera.ScreenPointToRay(targetPoint);
 
-                Debug.Log("Shoot");
-                --DataHolder.bulletCount;
-            }
+        RaycastHit hit;
+
+        if (!Physics.Raycast(ray, out hit)) {
+            return;
+        }
+
+
+        targetPoint = hit.point;
+        GameObject hitted_object = hit.transform.gameObject;
+        Debug.Log("Try to hit " + hitted_object.name + " at distance " + hit.distance.ToString());
+        GameObject bullet = GameObject.Instantiate(_bullet, _gunNozzle.position, _gunNozzle.rotation);
+        bullet.GetComponent<LaserBullet>().GetPoint(targetPoint);
+
+        if (currentWeapon.GetRangeRadius() < hit.distance) {
+            Debug.Log("Hitted object is too far away");
+            return;
+        }
+
+        Enemy enemy = hitted_object.GetComponent<Enemy>();
+        if (null != enemy) {
+            enemy.ReactToDamage(currentWeapon.GetDamage());
+        // =======
+
+
+
+        // RaycastHit hit;
+        // if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 100.0f))
+        // {
+        // targetPoint = hit.point;
+        // GameObject hitted_object = hit.transform.gameObject;
+        // Debug.Log("Hit " + hitted_object.name);
+        // GameObject bullet = GameObject.Instantiate(_bullet, _gunNozzle.position, _gunNozzle.rotation);
+        // bullet.GetComponent<LaserBullet>().GetPoint(targetPoint);
+
+        // Enemy enemy = hitted_object.GetComponent<Enemy>();
+        // if (null != enemy)
+        // {
+        // enemy.ReactToDamage(damage);
+        // }
+
+        // Debug.DrawLine(ray.origin, ray.GetPoint(10), Color.red, 5);
+
+        // Debug.Log("Shoot");
+        // —DataHolder.bulletCount;
+        // }
+        // »»»> dev
         }
     }
 }

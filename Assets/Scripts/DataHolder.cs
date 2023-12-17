@@ -33,7 +33,7 @@ public static class DataHolder
     public static int _jetpacksCount = 1;
     public static int _damageUpsCount = 1;
 
-    public static int jatpackDuration = 30;
+    public static int jatpackDuration = 15;
     public static int damageMultiplierDuration = 15;
     public static float jatpackTimeLeft = 0f;
     public static float damageMultiplierTimeLeft = 0f;

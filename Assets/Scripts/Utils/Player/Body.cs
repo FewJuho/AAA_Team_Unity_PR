@@ -5,22 +5,8 @@ using static DataHolder;
 
 public class Body : MonoBehaviour
 {
-    public int healthPoints = 100;
     public float collisionCooldown = 0.1f;
     public bool isCollisionAvailable = true;
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     void OnCollisionEnter(Collision collision) {
         if (!isCollisionAvailable) {

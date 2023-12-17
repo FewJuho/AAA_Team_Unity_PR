@@ -23,7 +23,8 @@ public static class DataHolder
     public static int maxShield = 500;
     public static int currentShield = 0;
 
-    public static int bulletCount = 5000;
+    public static int bulletCount = 10000;
+    public static int killedEnemiesCount = 0;
     public const int bulletCountAtCrate = 10;
     public static string[] weaponTypes = {"Fi", "Se"};
     public static bool jatpackActivated = false;

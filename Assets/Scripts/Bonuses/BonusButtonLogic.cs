@@ -19,7 +19,7 @@ public class BonusButtonLogic : MonoBehaviour
     public GameObject shieldpack;
     public void Heal()
     {
-        if (DataHolder._healsCount > 0)
+        if (DataHolder._healsCount > 0 && DataHolder.maxHP != DataHolder.currentHP)
         {
             healpack.SetActive(true);
             BonusLogic.ConsumeBonus(BonusLogic.BonusType.Heals, 1);
@@ -61,7 +61,7 @@ public class BonusButtonLogic : MonoBehaviour
     {
         healText.text = "Heal Packs: " + DataHolder._healsCount.ToString();
         jetpackText.text = "JetPacks: " + DataHolder._jetpacksCount.ToString();
-        damageText.text = "Damage Boosts: " + DataHolder._damageUpsCount.ToString();
+        damageText.text = "Adrenalines: " + DataHolder._damageUpsCount.ToString();
         shieldText.text = "Shields: " + DataHolder._shieldsCount.ToString();
 
         if (!DataHolder.jatpackActivated)

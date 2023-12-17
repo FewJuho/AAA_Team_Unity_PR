@@ -20,7 +20,10 @@ public class Body : MonoBehaviour
         }
 
         Debug.Log("Collide with " + collision.gameObject.name);
-        ReceiveDamage(enemy.hitDamage);
+        if (!DataHolder.shieldActivated)
+        {
+            ReceiveDamage(enemy.hitDamage);
+        }
         StartCoroutine(HittingCooldown());
     }
 

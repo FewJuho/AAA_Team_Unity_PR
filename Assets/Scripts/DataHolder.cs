@@ -28,6 +28,7 @@ public static class DataHolder
     public const int bulletCountAtCrate = 10;
     public static string[] weaponTypes = {"Fi", "Se"};
     public static bool jatpackActivated = false;
+    public static bool shieldActivated = false;
     public static float damageMultiplier = 1.0f;
 
     public static int _healsCount = 1;
@@ -37,7 +38,9 @@ public static class DataHolder
 
     public static int jatpackDuration = 15;
     public static int damageMultiplierDuration = 15;
+    public static int shieldDuration = 7;
     public static float jatpackTimeLeft = 0f;
     public static float damageMultiplierTimeLeft = 0f;
+    public static float shieldTimeLeft = 0f;
     public static Weapon.Type currentWeapon = Weapon.Type.None;
 }

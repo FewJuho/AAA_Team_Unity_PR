@@ -6,7 +6,7 @@ public class BonusLogic : MonoBehaviour
 {
     private static float damageMultiplierStartTime;
     private static float jatpackStartTime;
-
+    private static float shieldStartTime;
 
     public enum BonusType
     {
@@ -42,10 +42,14 @@ public class BonusLogic : MonoBehaviour
             case BonusType.Heals:
                 if (DataHolder._healsCount >= amount)
                 {
-                    DataHolder.currentHP += (300 * amount);
-                    DataHolder._healsCount -= amount;
-                    Debug.Log("HP = " + DataHolder.currentHP);
-                    return true;
+                    int hpToAdd = DataHolder.maxHP - DataHolder.currentHP < 300 ? DataHolder.maxHP - DataHolder.currentHP : 300;
+                    if (hpToAdd > 0) {
+                        DataHolder.currentHP += (hpToAdd * amount);
+                        DataHolder._healsCount -= amount;
+                        Debug.Log("HP = " + DataHolder.currentHP);
+                        return true;
+                    }
+                    return false;
                 }
                 break;
             case BonusType.Shields:
@@ -104,5 +108,18 @@ public class BonusLogic : MonoBehaviour
             DataHolder.jatpackActivated = false;
         }
         DataHolder.jatpackTimeLeft = Time.time - jatpackStartTime > 0 ? Time.time - jatpackStartTime : 0f;
+    }
+
+    public static void UpdateShield()
+    {
+        if (DataHolder.shieldTimeLeft < DataHolder.shieldDuration && DataHolder.shieldActivated)
+        {
+            DataHolder.shieldActivated = true;
+        }
+        else
+        {
+            DataHolder.shieldActivated = false;
+        }
+        DataHolder.shieldTimeLeft = Time.time - shieldStartTime > 0 ? Time.time - shieldStartTime : 0f;
     }
 }

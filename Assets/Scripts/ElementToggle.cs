@@ -71,6 +71,7 @@ public class ElementToggle : MonoBehaviour
 
         BonusLogic.UpdateDamageMultiplier();
         BonusLogic.UpdateJatpack();
+        BonusLogic.UpdateShield();
     }
 
     public void Resume() 

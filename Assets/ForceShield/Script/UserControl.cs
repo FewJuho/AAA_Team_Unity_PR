@@ -9,7 +9,7 @@ public class UserControl : MonoBehaviour
     [SerializeField] GameObject _bullet;
     [SerializeField] Transform _gunNozzle;
     [SerializeField] Vector3 targetPoint;
-    /*public enum RotationAxes { MouseXAndY = 0, MouseX = 1, MouseY = 2 }
+    public enum RotationAxes { MouseXAndY = 0, MouseX = 1, MouseY = 2 }
     RotationAxes axes = RotationAxes.MouseXAndY;
     public float sensitivityX = 15F;
     public float sensitivityY = 15F;
@@ -33,7 +33,6 @@ public class UserControl : MonoBehaviour
 
     Quaternion originalRotation;
 
-    [SerializeField] Vector3 targetPoint;
     private void Awake()
     {
         minimumX = _maxX.x;
@@ -41,10 +40,10 @@ public class UserControl : MonoBehaviour
 
         minimumY = _maxY.x;
         maximumY = _maxY.y;
-    }*/
+    }
     void Update()
     {
-        /*if (axes == RotationAxes.MouseXAndY)
+        if (axes == RotationAxes.MouseXAndY)
         {
             rotAverageY = 0f;
             rotAverageX = 0f;
@@ -130,7 +129,7 @@ public class UserControl : MonoBehaviour
             Quaternion yQuaternion = Quaternion.AngleAxis(rotAverageY, Vector3.left);
             transform.localRotation = originalRotation * yQuaternion;
         }
-        */
+        
         if (Input.GetMouseButtonDown(0))
         {
             RaycastHit hit;
@@ -145,7 +144,7 @@ public class UserControl : MonoBehaviour
         }
     }
 
-    /*void Start()
+    void Start()
     {
         originalRotation = transform.localRotation;
     }
@@ -165,5 +164,5 @@ public class UserControl : MonoBehaviour
             }
         }
         return Mathf.Clamp(angle, min, max);
-    }*/
+    }
 }

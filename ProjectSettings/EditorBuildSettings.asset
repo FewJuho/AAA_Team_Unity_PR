@@ -9,6 +9,12 @@ EditorBuildSettings:
     path: Assets/EasyMainMenu/Scenes/MainMenu.unity
     guid: c09f4b0b2a9226946aa44a3dd8ffdfa6
   - enabled: 1
-    path: Assets/Lunar Landscape 3D/Scenes/LunarLandscape3D.unity
-    guid: f4021bc829b444148a3959ec85eeeceb
+    path: Assets/Scenes/spaceship_scene.unity
+    guid: e8cf1d29775c7e24f9dd35148a6437c0
+  - enabled: 1
+    path: Assets/Scenes/LunarLandscape3D.unity
+    guid: 42b6b3118d3b3e792a964f407c6eabde
+  - enabled: 1
+    path: Assets/Scenes/space_fly.unity
+    guid: 51b96de711355045bbda3c4b1ad10564
   m_configObjects: {}

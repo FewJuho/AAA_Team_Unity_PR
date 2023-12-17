@@ -15,7 +15,7 @@ public class LaserBullet : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        Invoke("DestroyThis", 5);
+        Invoke("DestroyThis", 1);
         //GameObject particle = GameObject.Instantiate(_hitParticle, transform.position, Quaternion.identity);
 
     }

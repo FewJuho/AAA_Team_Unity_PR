@@ -119,8 +119,12 @@ public class MainMenuController : MonoBehaviour {
         DataHolder._currentLevel = level;
         if (level == 1)
             SceneManager.LoadScene(1);
-        else
-            Debug.LogError("BUG: level not loaded, check MainMenuController.newGame");
+        if (level == 2)
+            SceneManager.LoadScene(2);
+        if (level == 3)
+            SceneManager.LoadScene(3);
+        
+        Debug.LogError("BUG: level not loaded, check MainMenuController.newGame");
     }
 
     public void Quit()

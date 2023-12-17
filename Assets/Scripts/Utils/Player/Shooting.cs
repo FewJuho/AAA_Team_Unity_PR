@@ -16,6 +16,10 @@ public class Shooting : MonoBehaviour
 
     void Update()
     {
+        if (DataHolder._stopMouseFollowing) {
+            return;
+        }
+
         var currentWeapon = Weapon.FromType(DataHolder.currentWeapon);
 
         if (!currentWeapon.IsShooting()) {

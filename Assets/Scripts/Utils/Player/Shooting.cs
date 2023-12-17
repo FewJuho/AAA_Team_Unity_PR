@@ -7,7 +7,6 @@ public class Shooting : MonoBehaviour
     public int damage = 42; // TODO: use different guns
 
     private Camera _camera;
-    public int ammo = 100;
 
 
     // Start is called before the first frame update
@@ -23,15 +22,14 @@ public class Shooting : MonoBehaviour
             return;
         }
 
-        Debug.Assert(ammo >= 0);
-        if (0 == ammo) {
-            // Do nothing now
-            // TODO: add sound effect?
+        Debug.Assert(DataHolder.bulletCount >= 0);
+        if (0 == DataHolder.bulletCount) {
+            Debug.Log("ran out of bullets");
             return;
         }
 
         Debug.Log("Shoot");
-        --ammo;
+        --DataHolder.bulletCount;
 
         Vector3 screen_center = new Vector3(Screen.width / 2, Screen.height / 2, 0);
         Ray ray = _camera.ScreenPointToRay(screen_center);

@@ -21,6 +21,7 @@ public class ChangeMaterialOnHover : MonoBehaviour, IPointerEnterHandler, IPoint
         EventTrigger.Entry entryExit = new EventTrigger.Entry { eventID = EventTriggerType.PointerExit };
         entryExit.callback.AddListener((data) => { OnPointerExit((PointerEventData)data); });
         trigger.triggers.Add(entryExit);
+        RestartColors();
     }
 
     // Обработчик события при наведении курсора

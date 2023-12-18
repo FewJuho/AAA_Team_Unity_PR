@@ -17,6 +17,15 @@ public class BonusButtonLogic : MonoBehaviour
     public GameObject jetpack;
     public GameObject damagepack;
     public GameObject shieldpack;
+
+    public GameObject jetpackCanvas;
+    public BonusTimer jetpackTimer;
+
+    public GameObject damageCanvas;
+    public BonusTimer damageTimer;
+
+    public GameObject shieldCanvas;
+    public BonusTimer shieldTimer;
     public void Heal()
     {
         if (DataHolder._healsCount > 0 && DataHolder.maxHP != DataHolder.currentHP)
@@ -32,8 +41,17 @@ public class BonusButtonLogic : MonoBehaviour
         if (DataHolder._jetpacksCount > 0)
         {
             jetpack.SetActive(true);
-            BonusLogic.ConsumeBonus(BonusLogic.BonusType.Jetpacks, 1);
             jetpackAnim.SetTrigger("JetpackTrigger");
+            jetpackCanvas.SetActive(true);
+            jetpackTimer.StartTimer();
+
+            if (DataHolder.jatpackActivated)
+            {
+                jetpackTimer.ResetTimer();
+            }
+
+            BonusLogic.ConsumeBonus(BonusLogic.BonusType.Jetpacks, 1);
+
         }
     }
 
@@ -42,8 +60,16 @@ public class BonusButtonLogic : MonoBehaviour
         if (DataHolder._damageUpsCount > 0)
         {
             damagepack.SetActive(true);
-            BonusLogic.ConsumeBonus(BonusLogic.BonusType.DamageUps, 1);
             damageAnim.SetTrigger("DamageTrigger");
+            damageCanvas.SetActive(true);
+            damageTimer.StartTimer();
+            if (DataHolder.damageMultiplier == 2.0f)
+            {
+                damageTimer.ResetTimer();
+            }
+
+            BonusLogic.ConsumeBonus(BonusLogic.BonusType.DamageUps, 1);
+
         }
     }
 
@@ -52,8 +78,16 @@ public class BonusButtonLogic : MonoBehaviour
         if (DataHolder._shieldsCount > 0)
         {
             shieldpack.SetActive(true);
-            BonusLogic.ConsumeBonus(BonusLogic.BonusType.Shields, 1);
             shieldAnim.SetTrigger("ShieldTrigger");
+            shieldCanvas.SetActive(true);
+            shieldTimer.StartTimer();
+            if (DataHolder.shieldActivated)
+            {
+                shieldTimer.ResetTimer();
+            }
+
+            BonusLogic.ConsumeBonus(BonusLogic.BonusType.Shields, 1);
+
         }
     }
 
@@ -67,7 +101,21 @@ public class BonusButtonLogic : MonoBehaviour
         if (!DataHolder.jatpackActivated)
         {
             jetpack.SetActive(false);
+            jetpackCanvas.SetActive(false);
         }
+
+        if (!DataHolder.shieldActivated)
+        {
+            shieldpack.SetActive(false);
+            shieldCanvas.SetActive(false);
+        }
+
+        if (DataHolder.damageMultiplier == 1.0f)
+        {
+            damagepack.SetActive(false);
+            damageCanvas.SetActive(false);
+        }
+
     }
 
    

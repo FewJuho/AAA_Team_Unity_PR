@@ -31,10 +31,10 @@ public static class DataHolder
     public static bool shieldActivated = false;
     public static float damageMultiplier = 1.0f;
 
-    public static int _healsCount = 1;
-    public static int _shieldsCount = 1;
-    public static int _jetpacksCount = 1;
-    public static int _damageUpsCount = 1;
+    public static int _healsCount = 10;
+    public static int _shieldsCount = 10;
+    public static int _jetpacksCount = 10;
+    public static int _damageUpsCount = 10;
 
     public static int jatpackDuration = 15;
     public static int damageMultiplierDuration = 15;

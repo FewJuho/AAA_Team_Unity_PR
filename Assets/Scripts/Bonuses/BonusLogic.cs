@@ -47,9 +47,7 @@ public class BonusLogic : MonoBehaviour
                         DataHolder.currentHP += (hpToAdd * amount);
                         DataHolder._healsCount -= amount;
                         Debug.Log("HP = " + DataHolder.currentHP);
-                        return true;
                     }
-                    return false;
                 }
                 break;
             case BonusType.Shields:
@@ -57,7 +55,8 @@ public class BonusLogic : MonoBehaviour
                 {
                     DataHolder.currentShield += (250 * amount);
                     DataHolder._shieldsCount -= amount;
-                    return true;
+                    shieldStartTime = Time.time;
+                    DataHolder.shieldActivated = true;
                 }
                 break;
             case BonusType.Jetpacks:
@@ -66,7 +65,6 @@ public class BonusLogic : MonoBehaviour
                     jatpackStartTime = Time.time;
                     DataHolder._jetpacksCount -= amount;
                     DataHolder.jatpackActivated = true;
-                    return true;
                 }
                 break;
             case BonusType.DamageUps:
@@ -75,51 +73,47 @@ public class BonusLogic : MonoBehaviour
                     DataHolder.damageMultiplier = 2.0f;
                     damageMultiplierStartTime = Time.time;
                     DataHolder._damageUpsCount -= amount;
-                    return true;
                 }
                 break;
         }
 
-        return false;
+        return true;
     }
 
-    // Âûחûגאועסÿ ג ךאזהמל ךאהנו
     public static void UpdateDamageMultiplier()
     {
-        if (Time.time - damageMultiplierStartTime < DataHolder.damageMultiplierDuration && DataHolder.damageMultiplier == 2.0f)
+        if (DataHolder.damageMultiplier == 2.0f)
         {
-            DataHolder.damageMultiplier = 2.0f;
+            DataHolder.damageMultiplierTimeLeft = DataHolder.damageMultiplierDuration - (Time.time - damageMultiplierStartTime) > 0 ? DataHolder.damageMultiplierDuration - (Time.time - damageMultiplierStartTime) : 0f;
+            if (DataHolder.damageMultiplierTimeLeft == 0f)
+            {
+                DataHolder.damageMultiplier = 1.0f;
+            }
         }
-        else
-        {
-            DataHolder.damageMultiplier = 1.0f;
-        }
-        DataHolder.damageMultiplierTimeLeft = Time.time - damageMultiplierStartTime > 0? Time.time - damageMultiplierStartTime : 0f;
     }
 
     public static void UpdateJatpack()
     {
-        if (DataHolder.jatpackTimeLeft < DataHolder.jatpackDuration && DataHolder.jatpackActivated)
+        if (DataHolder.jatpackActivated)
         {
-            DataHolder.jatpackActivated = true;
+            DataHolder.jatpackTimeLeft = DataHolder.jatpackDuration - (Time.time - jatpackStartTime) > 0 ? DataHolder.jatpackDuration - (Time.time - jatpackStartTime) : 0f;
+            if (DataHolder.jatpackTimeLeft == 0f)
+            {
+                DataHolder.jatpackActivated = false;
+            }
         }
-        else
-        {
-            DataHolder.jatpackActivated = false;
-        }
-        DataHolder.jatpackTimeLeft = Time.time - jatpackStartTime > 0 ? Time.time - jatpackStartTime : 0f;
     }
 
     public static void UpdateShield()
     {
-        if (DataHolder.shieldTimeLeft < DataHolder.shieldDuration && DataHolder.shieldActivated)
+        Debug.Log(DataHolder.shieldTimeLeft);
+        if (DataHolder.shieldActivated)
         {
-            DataHolder.shieldActivated = true;
+            DataHolder.shieldTimeLeft = DataHolder.shieldDuration - (Time.time - shieldStartTime) > 0 ? DataHolder.shieldDuration - (Time.time - shieldStartTime) : 0f;
+            if (DataHolder.shieldTimeLeft == 0f)
+            {
+                DataHolder.shieldActivated = false;
+            }
         }
-        else
-        {
-            DataHolder.shieldActivated = false;
-        }
-        DataHolder.shieldTimeLeft = Time.time - shieldStartTime > 0 ? Time.time - shieldStartTime : 0f;
     }
 }

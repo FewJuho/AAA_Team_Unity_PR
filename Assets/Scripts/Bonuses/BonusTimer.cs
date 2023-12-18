@@ -279,7 +279,7 @@ public class BonusTimer : MonoBehaviour
         ResetTimer();
     }
 
-    private void ResetTimer()
+    public void ResetTimer()
     {
         timerPaused = false;
 

@@ -55,6 +55,8 @@ public class BonusLogic : MonoBehaviour
                 {
                     DataHolder.currentShield += (250 * amount);
                     DataHolder._shieldsCount -= amount;
+                    shieldStartTime = Time.time;
+                    DataHolder.shieldActivated = true;
                 }
                 break;
             case BonusType.Jetpacks:
@@ -104,6 +106,7 @@ public class BonusLogic : MonoBehaviour
 
     public static void UpdateShield()
     {
+        Debug.Log(DataHolder.shieldTimeLeft);
         if (DataHolder.shieldActivated)
         {
             DataHolder.shieldTimeLeft = DataHolder.shieldDuration - (Time.time - shieldStartTime) > 0 ? DataHolder.shieldDuration - (Time.time - shieldStartTime) : 0f;

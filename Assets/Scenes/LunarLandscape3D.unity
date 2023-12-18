@@ -438,15 +438,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2257240417927789728, guid: 40e2d5fad51ada142b714fa7ccc00c34, type: 3}
       propertyPath: m_Color.b
-      value: 0.9734275
+      value: 0.1354809
       objectReference: {fileID: 0}
     - target: {fileID: 2257240417927789728, guid: 40e2d5fad51ada142b714fa7ccc00c34, type: 3}
       propertyPath: m_Color.g
-      value: 1
+      value: 0.7169812
       objectReference: {fileID: 0}
     - target: {fileID: 2257240417927789728, guid: 40e2d5fad51ada142b714fa7ccc00c34, type: 3}
       propertyPath: m_Color.r
-      value: 0.3150943
+      value: 0.070345305
       objectReference: {fileID: 0}
     - target: {fileID: 3308990949748510342, guid: 40e2d5fad51ada142b714fa7ccc00c34, type: 3}
       propertyPath: m_Color.b
@@ -880,6 +880,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1576174270056803632, guid: 978e09fdf0d7dd746b32f3a74746ddf2, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 46.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 1576174270056803632, guid: 978e09fdf0d7dd746b32f3a74746ddf2, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 87.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 1576174270056803632, guid: 978e09fdf0d7dd746b32f3a74746ddf2, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1576174270056803632, guid: 978e09fdf0d7dd746b32f3a74746ddf2, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -2.0701
+      objectReference: {fileID: 0}
+    - target: {fileID: 2199218571457972206, guid: 978e09fdf0d7dd746b32f3a74746ddf2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4022073126187849651, guid: 978e09fdf0d7dd746b32f3a74746ddf2, type: 3}
       propertyPath: m_SizeDelta.x
       value: 100.8
@@ -906,7 +926,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4022073126187849651, guid: 978e09fdf0d7dd746b32f3a74746ddf2, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 287
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 4022073126187849651, guid: 978e09fdf0d7dd746b32f3a74746ddf2, type: 3}
       propertyPath: m_ConstrainProportionsScale
@@ -918,20 +938,64 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4291181669783612617, guid: 978e09fdf0d7dd746b32f3a74746ddf2, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4331976891375243916, guid: 978e09fdf0d7dd746b32f3a74746ddf2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4705038971280660670, guid: 978e09fdf0d7dd746b32f3a74746ddf2, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5300811004928068880, guid: 978e09fdf0d7dd746b32f3a74746ddf2, type: 3}
+      propertyPath: damageTimer
+      value: 
+      objectReference: {fileID: 1857750469}
+    - target: {fileID: 5300811004928068880, guid: 978e09fdf0d7dd746b32f3a74746ddf2, type: 3}
+      propertyPath: shieldTimer
+      value: 
+      objectReference: {fileID: 2142747209}
+    - target: {fileID: 5300811004928068880, guid: 978e09fdf0d7dd746b32f3a74746ddf2, type: 3}
+      propertyPath: damageCanvas
+      value: 
+      objectReference: {fileID: 1217869737}
+    - target: {fileID: 5300811004928068880, guid: 978e09fdf0d7dd746b32f3a74746ddf2, type: 3}
       propertyPath: jetpackTimer
       value: 
       objectReference: {fileID: 1352848333}
     - target: {fileID: 5300811004928068880, guid: 978e09fdf0d7dd746b32f3a74746ddf2, type: 3}
+      propertyPath: shieldCanvas
+      value: 
+      objectReference: {fileID: 1492673626}
+    - target: {fileID: 5300811004928068880, guid: 978e09fdf0d7dd746b32f3a74746ddf2, type: 3}
       propertyPath: jetpackCanvas
       value: 
       objectReference: {fileID: 560659825}
+    - target: {fileID: 5401799046363990672, guid: 978e09fdf0d7dd746b32f3a74746ddf2, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 53.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 5401799046363990672, guid: 978e09fdf0d7dd746b32f3a74746ddf2, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 77.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5401799046363990672, guid: 978e09fdf0d7dd746b32f3a74746ddf2, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -3.300003
+      objectReference: {fileID: 0}
+    - target: {fileID: 5401799046363990672, guid: 978e09fdf0d7dd746b32f3a74746ddf2, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 3.9004
+      objectReference: {fileID: 0}
+    - target: {fileID: 7523707539216040074, guid: 978e09fdf0d7dd746b32f3a74746ddf2, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 47.53
+      objectReference: {fileID: 0}
+    - target: {fileID: 7523707539216040074, guid: 978e09fdf0d7dd746b32f3a74746ddf2, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 2.199997
+      objectReference: {fileID: 0}
     - target: {fileID: 8557273080162772631, guid: 978e09fdf0d7dd746b32f3a74746ddf2, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.974
@@ -7456,7 +7520,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1217869738
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7474,7 +7538,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 871, y: 287}
+  m_AnchoredPosition: {x: 871, y: 150}
   m_SizeDelta: {x: 100.8, y: 231.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1217869739
@@ -7497,7 +7561,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: f058a87f1c28fe64289ac4eaa006cc17, type: 3}
+  m_Texture: {fileID: 2800000, guid: 70b37aa40d58a814193cbec1e9e86cef, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -8385,15 +8449,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2257240417927789728, guid: 40e2d5fad51ada142b714fa7ccc00c34, type: 3}
       propertyPath: m_Color.b
-      value: 0.9734275
+      value: 0.31372547
       objectReference: {fileID: 0}
     - target: {fileID: 2257240417927789728, guid: 40e2d5fad51ada142b714fa7ccc00c34, type: 3}
       propertyPath: m_Color.g
-      value: 1
+      value: 0.38581103
       objectReference: {fileID: 0}
     - target: {fileID: 2257240417927789728, guid: 40e2d5fad51ada142b714fa7ccc00c34, type: 3}
       propertyPath: m_Color.r
-      value: 0.3150943
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3308990949748510342, guid: 40e2d5fad51ada142b714fa7ccc00c34, type: 3}
       propertyPath: m_Color.b
@@ -8600,12 +8664,12 @@ GameObject:
   - component: {fileID: 1492673629}
   - component: {fileID: 1492673628}
   m_Layer: 5
-  m_Name: jetpack (2)
+  m_Name: shield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1492673627
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8623,7 +8687,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 871, y: 287}
+  m_AnchoredPosition: {x: 871, y: 0}
   m_SizeDelta: {x: 100.8, y: 231.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1492673628
@@ -8646,7 +8710,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: f058a87f1c28fe64289ac4eaa006cc17, type: 3}
+  m_Texture: {fileID: 2800000, guid: fb8f60bcc9c6db34cb0272cbf0cc44cf, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -9393,7 +9457,7 @@ MonoBehaviour:
       m_Calls: []
   hours: 0
   minutes: 0
-  seconds: 15
+  seconds: 7
   startAtRuntime: 1
   hoursDisplay: 0
   minutesDisplay: 0
@@ -9406,7 +9470,7 @@ MonoBehaviour:
   dialSlider: {fileID: 72956246}
   timerRunning: 0
   timerPaused: 0
-  timeRemaining: 15
+  timeRemaining: 7
 --- !u!1001 &518663327842083638
 PrefabInstance:
   m_ObjectHideFlags: 0

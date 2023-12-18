@@ -112,7 +112,7 @@ public class BonusTimer : MonoBehaviour
     }
     void Start()
     {
-        if (startAtRuntime)
+        if (false)
         {
             StartTimer();
         }

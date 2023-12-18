@@ -17,6 +17,9 @@ public class BonusButtonLogic : MonoBehaviour
     public GameObject jetpack;
     public GameObject damagepack;
     public GameObject shieldpack;
+
+    public GameObject jetpackCanvas;
+    public BonusTimer jetpackTimer;
     public void Heal()
     {
         if (DataHolder._healsCount > 0 && DataHolder.maxHP != DataHolder.currentHP)
@@ -34,6 +37,8 @@ public class BonusButtonLogic : MonoBehaviour
             jetpack.SetActive(true);
             BonusLogic.ConsumeBonus(BonusLogic.BonusType.Jetpacks, 1);
             jetpackAnim.SetTrigger("JetpackTrigger");
+            jetpackCanvas.SetActive(true);
+            jetpackTimer.StartTimer();
         }
     }
 
@@ -67,7 +72,10 @@ public class BonusButtonLogic : MonoBehaviour
         if (!DataHolder.jatpackActivated)
         {
             jetpack.SetActive(false);
+            jetpackCanvas.SetActive(false);
         }
+
+
     }
 
    

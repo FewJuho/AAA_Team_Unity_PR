@@ -33,6 +33,9 @@ public class StatsManager : MonoBehaviour
             minusBullets(1);
         } 
 
+        if ((DataHolder.currentHP != DataHolder.maxHP) && (currentHP != DataHolder.currentHP) && (DataHolder.currentHP > 0)) {
+            elementToggle.playDamageLightAnim();
+        }
 
         // Get values from DataHolder
         maxHP = DataHolder.maxHP;

@@ -14,7 +14,7 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
-        _player = GameObject.Find("FPS NEW Controller");
+        _player = GameObject.Find("v2.0");
     }
 
     void Update()

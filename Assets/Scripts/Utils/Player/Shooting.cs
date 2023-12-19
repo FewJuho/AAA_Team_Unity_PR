@@ -42,7 +42,7 @@ public class Shooting : MonoBehaviour
 
         RaycastHit hit;
 
-        if (!Physics.Raycast(ray, out hit)) {
+        if (!Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 100.0f)) {
             return;
         }
 
@@ -53,10 +53,10 @@ public class Shooting : MonoBehaviour
         GameObject bullet = GameObject.Instantiate(_bullet, _gunNozzle.position, _gunNozzle.rotation);
         bullet.GetComponent<LaserBullet>().GetPoint(targetPoint);
 
-        if (currentWeapon.GetRangeRadius() < hit.distance) {
-            Debug.Log("Hitted object is too far away");
-            return;
-        }
+        // if (currentWeapon.GetRangeRadius() < hit.distance) {
+        //     Debug.Log("Hitted object is too far away");
+        //     return;
+        // }
 
         Enemy enemy = hitted_object.GetComponent<Enemy>();
         if (null != enemy) {
@@ -64,6 +64,7 @@ public class Shooting : MonoBehaviour
         // =======
 
 
+        // Debug.DrawLine(ray.origin, ray.GetPoint(10), Color.red, 5);
 
         // RaycastHit hit;
         // if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 100.0f))

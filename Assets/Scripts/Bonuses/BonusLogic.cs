@@ -106,7 +106,7 @@ public class BonusLogic : MonoBehaviour
 
     public static void UpdateShield()
     {
-        Debug.Log(DataHolder.shieldTimeLeft);
+        // Debug.Log(DataHolder.shieldTimeLeft);
         if (DataHolder.shieldActivated)
         {
             DataHolder.shieldTimeLeft = DataHolder.shieldDuration - (Time.time - shieldStartTime) > 0 ? DataHolder.shieldDuration - (Time.time - shieldStartTime) : 0f;

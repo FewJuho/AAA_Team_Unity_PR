@@ -17,6 +17,7 @@ public class ElementToggle : MonoBehaviour
     public GameObject stats;
     public GameObject help;
     public GameObject gameOver;
+    public int killCountToWin = 3;
 
     void Start() 
     {
@@ -67,6 +68,10 @@ public class ElementToggle : MonoBehaviour
                 Resume();
             else 
                 Pause();            
+        }
+
+        if (DataHolder.killedEnemiesCount >= killCountToWin) {
+            gameWin();
         }
 
         BonusLogic.UpdateDamageMultiplier();
@@ -136,12 +141,14 @@ public class ElementToggle : MonoBehaviour
         if (DataHolder._currentLevel == DataHolder._openLevels) {
             DataHolder._openLevels += 1;
         }
+        DataHolder.killedEnemiesCount = 0;
         gameIsOver();
     }
 
     public void gameLose()
     {
         gameOver.transform.Find("Text").GetComponent<Text>().text = "Game over";
+        DataHolder.killedEnemiesCount = 0;
         gameIsOver();
     }
 

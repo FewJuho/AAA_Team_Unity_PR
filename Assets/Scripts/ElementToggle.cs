@@ -17,7 +17,7 @@ public class ElementToggle : MonoBehaviour
     public GameObject stats;
     public GameObject help;
     public GameObject gameOver;
-    public int killCountToWin = 3;
+    public int killCountToWin = 10;
 
     void Start() 
     {
@@ -70,7 +70,7 @@ public class ElementToggle : MonoBehaviour
                 Pause();            
         }
 
-        if (DataHolder.killedEnemiesCount >= killCountToWin) {
+        if (DataHolder.killedEnemiesCount >= 10) {
             gameWin();
         }
 

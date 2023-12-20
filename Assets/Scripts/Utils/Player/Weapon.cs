@@ -9,6 +9,8 @@ public abstract class Weapon {
 
     public abstract int GetAmmoPrice();
 
+    public abstract float GetFireRateTime();
+
     public virtual int GetRangeRadius() {
         return 100;
     }    
@@ -55,6 +57,10 @@ public class _Hammer : Weapon
         return 0;
     }
 
+    public override float GetFireRateTime() {
+        return 0.917F;
+    }
+
     public override int GetRangeRadius() {
         return 3;
     }
@@ -72,6 +78,10 @@ public class _Shotgun : Weapon
 
     public override int GetAmmoPrice() {
         return 5;
+    }
+
+    public override float GetFireRateTime() {
+        return 0.5f;
     }
 
     public override int GetRangeRadius() {
@@ -99,6 +109,10 @@ public class _Pistol : Weapon
         return 2;
     }
 
+    public override float GetFireRateTime() {
+        return 0.25f;
+    }
+
     public override Transform GetBulletSource(Transform models) {
         return models.Find("PistolModel").Find("BulletSource");
     }
@@ -112,6 +126,10 @@ public class _Rifle : Weapon
 
     public override int GetAmmoPrice() {
         return 1;
+    }
+
+    public override float GetFireRateTime() {
+        return 0.167f;
     }
 
     public override bool IsShooting()
@@ -128,6 +146,11 @@ public class _NoneWeapon : Weapon
     }
 
     public override int GetAmmoPrice() {
+        Debug.Assert(false);
+        return 0;
+    }
+
+    public override float GetFireRateTime() {
         Debug.Assert(false);
         return 0;
     }

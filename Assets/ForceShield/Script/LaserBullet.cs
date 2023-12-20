@@ -34,11 +34,8 @@ public class LaserBullet : MonoBehaviour
             return;
         }
         Debug.Log(col);
-        if (col.CompareTag(_wallTags))
-        {
-            Debug.Log("Wall Hit");
-            GameObject particle = GameObject.Instantiate(_hitParticle, transform.position, Quaternion.identity, col.transform);
-        }
+        Debug.Log("Wall Hit");
+        GameObject particle = GameObject.Instantiate(_hitParticle, transform.position, Quaternion.identity, col.transform);
         Destroy(gameObject);
     }
 

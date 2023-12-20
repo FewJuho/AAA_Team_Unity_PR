@@ -5,7 +5,7 @@ using static DataHolder;
 
 public class Body : MonoBehaviour
 {
-    public float collisionCooldown = 0.1f;
+    public float collisionCooldown = 1.0f;
     public bool isCollisionAvailable = true;
 
     void OnCollisionEnter(Collision collision) {

@@ -50,7 +50,7 @@ public abstract class Weapon {
 public class _Hammer : Weapon
 {
     public override int GetDamage() {
-        return 50;
+        return 100;
     }
 
     public override int GetAmmoPrice() {

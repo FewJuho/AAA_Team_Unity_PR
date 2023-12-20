@@ -33,7 +33,7 @@ public class StatsManager : MonoBehaviour
             minusBullets(1);
         } 
 
-        if ((DataHolder.currentHP != DataHolder.maxHP) && (currentHP != DataHolder.currentHP) && (DataHolder.currentHP > 0)) {
+        if ((DataHolder.currentHP != DataHolder.maxHP) && (currentHP > DataHolder.currentHP) && (DataHolder.currentHP > 0)) {
             elementToggle.playDamageLightAnim();
         }
 
@@ -43,7 +43,7 @@ public class StatsManager : MonoBehaviour
         bulletCount = DataHolder.bulletCount;
         weaponTypes = DataHolder.weaponTypes;
 
-        if (currentHP == 0) {
+        if (currentHP <= 0) {
             elementToggle.gameLose();
             DataHolder.currentHP = -1;
             // Debug.LogError("You are dead!"); // TODO delete

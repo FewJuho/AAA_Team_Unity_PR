@@ -188,7 +188,6 @@ public class MainMenuController : MonoBehaviour {
     }
 
     void playClickSound() {
-        Debug.Log("button pressed");
         GetComponent<AudioSource>().PlayOneShot(buttonAudio);
     }
 

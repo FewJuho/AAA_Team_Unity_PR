@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 297098016}
-  m_IndirectSpecularColor: {r: 0.040497087, g: 0.038840722, b: 0.040977336, a: 1}
+  m_IndirectSpecularColor: {r: 0.040559843, g: 0.038807772, b: 0.04100153, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -963,15 +963,15 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 100
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
+  BypassEffects: 1
+  BypassListenerEffects: 1
+  BypassReverbZones: 1
   rolloffCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -1016,7 +1016,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.0027777778
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -7874,11 +7874,11 @@ PrefabInstance:
     - target: {fileID: 8759458052707712702, guid: 656835c98f7180548bfc0a3c70bdbd94, type: 3}
       propertyPath: deathAudio
       value: 
-      objectReference: {fileID: 8300000, guid: e53ada1dc9592f84f85d458ed7dbc7bc, type: 3}
+      objectReference: {fileID: 8300000, guid: c139189518e6b3b45ad0c04272f2e3d2, type: 3}
     - target: {fileID: 8759458052707712702, guid: 656835c98f7180548bfc0a3c70bdbd94, type: 3}
       propertyPath: attackAudio
       value: 
-      objectReference: {fileID: 8300000, guid: 8e595e733a1fda4419548fc5ac3dc0b8, type: 3}
+      objectReference: {fileID: 8300000, guid: e9efd3a37ee069b48833d4030868310e, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8465,6 +8465,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: v2.0
       objectReference: {fileID: 0}
+    - target: {fileID: 1993116864131524288, guid: 260abcc8f97dbb14d8640d873967d425, type: 3}
+      propertyPath: jumpStrength
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3035153405249809416, guid: 260abcc8f97dbb14d8640d873967d425, type: 3}
+      propertyPath: jetpackAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 3e0edb854f326314d8050f0baf378583, type: 3}
     - target: {fileID: 4140654703584103087, guid: 260abcc8f97dbb14d8640d873967d425, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.974

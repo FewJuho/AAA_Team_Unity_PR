@@ -40,7 +40,7 @@ public class Body : MonoBehaviour
         DataHolder.currentHP -= damage;
         if (DataHolder.currentHP < 0) {
             // TODO: switch to game over screen instead
-            Destroy(this.transform.gameObject);
+            // Destroy(this.transform.gameObject);
         }
     }
 

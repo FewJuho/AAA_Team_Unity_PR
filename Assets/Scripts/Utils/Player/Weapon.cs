@@ -6,10 +6,23 @@ public abstract class Weapon {
     public enum Type{None, Hammer, Shotgun, Pistol, Rifle};
 
     public abstract int GetDamage();
+
     public abstract int GetAmmoPrice();
-    public abstract int GetRangeRadius();
+
+    public virtual int GetRangeRadius() {
+        return 100;
+    }    
+    
     public virtual bool IsShooting() {
         return Input.GetMouseButtonDown(0);
+    }
+
+    public virtual Transform GetBulletSource(Transform models) {
+        return null;
+    }
+
+    public virtual bool HasBullets() {
+        return true;
     }
 
     public static Weapon FromType(Type weaponType) {
@@ -35,7 +48,7 @@ public abstract class Weapon {
 public class _Hammer : Weapon
 {
     public override int GetDamage() {
-        return 50;
+        return 100;
     }
 
     public override int GetAmmoPrice() {
@@ -43,7 +56,11 @@ public class _Hammer : Weapon
     }
 
     public override int GetRangeRadius() {
-        return 3;
+        return 2;
+    }
+    
+    public override bool HasBullets() {
+        return false;
     }
 }
 
@@ -59,6 +76,10 @@ public class _Shotgun : Weapon
 
     public override int GetRangeRadius() {
         return 10;
+    }
+
+    public override Transform GetBulletSource(Transform models) {
+        return models.Find("ShotgunModel").Find("PartA").Find("BulletSource");
     }
 
     // TODO: implement?
@@ -78,26 +99,19 @@ public class _Pistol : Weapon
         return 2;
     }
 
-    public override int GetRangeRadius() {
-        return 20;
+    public override Transform GetBulletSource(Transform models) {
+        return models.Find("PistolModel").Find("BulletSource");
     }
-    public static int damage = 25;
-    public static int ammoPrice = 2;
-    public static int rangeRadius = 10;
 }
 
 public class _Rifle : Weapon
 {
     public override int GetDamage() {
-        return 5;
+        return 10;
     }
 
     public override int GetAmmoPrice() {
         return 1;
-    }
-
-    public override int GetRangeRadius() {
-        return 20;
     }
 
     public override bool IsShooting()
@@ -109,19 +123,18 @@ public class _Rifle : Weapon
 public class _NoneWeapon : Weapon
 {
     public override int GetDamage() {
+        Debug.Assert(false);
         return 0;
     }
 
     public override int GetAmmoPrice() {
+        Debug.Assert(false);
         return 0;
     }
 
-    public override int GetRangeRadius() {
-        return 0;
+    public override bool IsShooting()
+    {
+        return false;
     }
-
-    public static int damage = 0;
-    public static int ammoPrice = 0;
-    public static int rangeRadius = 0;
 }
 

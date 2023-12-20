@@ -5,19 +5,19 @@ using UnityEngine;
 public class Shooting : MonoBehaviour
 {
     private Camera _camera;
-    private float lastClickTime;
     [SerializeField] GameObject _bullet;
     [SerializeField] Transform _gunNozzle;
     [SerializeField] Vector3 targetPoint;
-    
+
     void Start()
     {
         _camera = GetComponent<Camera>();
+        var models = this.transform.Find("CanvasFirstPerson").transform.Find("Weapon_Models");
     }
 
     void Update()
     {
-        if (DataHolder._stopMouseFollowing || DataHolder.currentWeapon == Weapon.Type.None) {
+        if (DataHolder._stopMouseFollowing) {
             return;
         }
 
@@ -35,23 +35,7 @@ public class Shooting : MonoBehaviour
             return;
         }
 
-        if (DataHolder.currentWeapon == Weapon.Type.Rifle)
-        {
-            if (Time.time - lastClickTime < 0.05f)
-            {
-                return;
-            }
-            lastClickTime = Time.time;
-        }
-
-        if (DataHolder.currentWeapon == Weapon.Type.Hammer)
-        {
-            if (Time.time - lastClickTime < 1f)
-            {
-                return;
-            }
-            lastClickTime = Time.time;
-        }
+        Debug.Log("Shoot");
         DataHolder.bulletCount -= currentWeapon.GetAmmoPrice();
 
         Vector3 screen_center = new Vector3(Screen.width / 2, Screen.height / 2, 0);
@@ -63,50 +47,24 @@ public class Shooting : MonoBehaviour
             return;
         }
 
-
-        targetPoint = hit.point;
         GameObject hitted_object = hit.transform.gameObject;
         Debug.Log("Try to hit " + hitted_object.name + " at distance " + hit.distance.ToString());
-        if (DataHolder.currentWeapon != Weapon.Type.Hammer) {
+
+        if (currentWeapon.HasBullets()) {
+            targetPoint = hit.point;
             GameObject bullet = GameObject.Instantiate(_bullet, _gunNozzle.position, _gunNozzle.rotation);
+            bullet.transform.Rotate(90.0f, 0.0f, 0.0f);
             bullet.GetComponent<LaserBullet>().GetPoint(targetPoint);
         }
-       
 
         if (currentWeapon.GetRangeRadius() < hit.distance) {
-             Debug.Log("Hitted object is too far away");
-             return;
+            Debug.Log("Hitted object is too far away");
+            return;
         }
 
         Enemy enemy = hitted_object.GetComponent<Enemy>();
         if (null != enemy) {
-            enemy.ReactToDamage(currentWeapon.GetDamage());
-        // =======
-
-
-        // Debug.DrawLine(ray.origin, ray.GetPoint(10), Color.red, 5);
-
-        // RaycastHit hit;
-        // if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 100.0f))
-        // {
-        // targetPoint = hit.point;
-        // GameObject hitted_object = hit.transform.gameObject;
-        // Debug.Log("Hit " + hitted_object.name);
-        // GameObject bullet = GameObject.Instantiate(_bullet, _gunNozzle.position, _gunNozzle.rotation);
-        // bullet.GetComponent<LaserBullet>().GetPoint(targetPoint);
-
-        // Enemy enemy = hitted_object.GetComponent<Enemy>();
-        // if (null != enemy)
-        // {
-        // enemy.ReactToDamage(damage);
-        // }
-
-        // Debug.DrawLine(ray.origin, ray.GetPoint(10), Color.red, 5);
-
-        // Debug.Log("Shoot");
-        // —DataHolder.bulletCount;
-        // }
-        // »»»> dev
+            enemy.ReactToDamage(currentWeapon.GetDamage() * DataHolder.damageMultiplier);
         }
     }
 }

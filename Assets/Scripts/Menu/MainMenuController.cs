@@ -23,6 +23,8 @@ public class MainMenuController : MonoBehaviour {
     public Text openLevelsText;
     private int GlobalLevelCount = 6;
 
+    public AudioClip buttonAudio;
+
 
     void Start () {
         anim = GetComponent<Animator>();
@@ -186,7 +188,8 @@ public class MainMenuController : MonoBehaviour {
     }
 
     void playClickSound() {
-
+        Debug.Log("button pressed");
+        GetComponent<AudioSource>().PlayOneShot(buttonAudio);
     }
 
     // ----------------------

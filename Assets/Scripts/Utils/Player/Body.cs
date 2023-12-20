@@ -22,7 +22,7 @@ public class Body : MonoBehaviour
         Debug.Log("Collide with " + collision.gameObject.name);
         if (!DataHolder.shieldActivated)
         {
-            ReceiveDamage(enemy.hitDamage);
+            ReceiveDamage(DataHolder.AnkleGrabberDamage);
         }
         StartCoroutine(HittingCooldown());
     }

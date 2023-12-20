@@ -10,14 +10,5 @@ public class InfShootingAnim : MonoBehaviour
         {
             animator.SetTrigger("LeftClick");
         }
-
-        if (rigidbody.velocity.sqrMagnitude < 0.01)
-        {
-            animator.ResetTrigger("MoveTrigger2");
-        }
-        else
-        {
-            animator.SetTrigger("MoveTrigger2");
-        }
     }
 }

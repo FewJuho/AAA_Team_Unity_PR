@@ -74,20 +74,6 @@ public class Enemy : MonoBehaviour
         attackAudioIsPlaying = true;
         yield return new WaitForSeconds(2.0f);
         GetComponent<AudioSource>().PlayOneShot(attackAudio);
-        Debug.Log("SOUND");
-        Debug.Log("SOUND");
-        Debug.Log("SOUND");
-
-        Debug.Log("SOUND");
-
-        Debug.Log("SOUND");
-
-        Debug.Log("SOUND");
-        Debug.Log("SOUND");
-
-
-
-
         yield return new WaitForSeconds(4.0f);
         attackAudioIsPlaying = false;
     }

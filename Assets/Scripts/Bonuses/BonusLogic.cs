@@ -7,18 +7,7 @@ public class BonusLogic : MonoBehaviour
     private static float damageMultiplierStartTime;
     private static float jatpackStartTime;
     private static float shieldStartTime;
-    public AudioClip jetpackPickupAudio;
-    public AudioClip healPickupAudio;
-    public AudioClip adrenalinePickupAudio;
-    public AudioClip shieldPickupAudio;
-    public AudioClip missingAudio;
-    private AudioSource audioSource;
 
-
-    private void Start()
-    {
-        audioSource = gameObject.GetComponent<AudioSource>();
-    }
     public enum BonusType
     {
         Heals,
@@ -58,9 +47,6 @@ public class BonusLogic : MonoBehaviour
                     DataHolder._healsCount -= amount;
                     Debug.Log("HP = " + DataHolder.currentHP);
 
-                }
-                else
-                {
                 }
                 break;
             case BonusType.Shields:

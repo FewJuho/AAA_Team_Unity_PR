@@ -16,6 +16,8 @@ public class Enemy : MonoBehaviour
     public AudioClip attackAudio;
     private GameObject _player;
     private bool attackAudioIsPlaying = false;
+    private static readonly int BiteTrigger = Animator.StringToHash("BiteTrigger");
+
     void Start()
     {
         _player = GameObject.Find("v2.0");
@@ -32,11 +34,11 @@ public class Enemy : MonoBehaviour
         lookAt.y = transform.position.y;
         transform.LookAt(lookAt);
 
-        transform.position += transform.forward * speed * Time.deltaTime;
+        transform.position += transform.forward * (speed * Time.deltaTime);
 
         if (Vector3.Distance(transform.position, _player.transform.position) < 5.0f)
         {
-            animator.SetTrigger("BiteTrigger");
+            animator.SetTrigger(BiteTrigger);
             if (!attackAudioIsPlaying)
             {
                 StartCoroutine(AttackAudio());

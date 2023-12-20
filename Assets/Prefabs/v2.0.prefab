@@ -1222,6 +1222,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   jumpForce: 10
+  jetpackAudio: {fileID: 0}
   canRun: 1
   runSpeed: 9
   runningKey: 304
@@ -6839,6 +6840,7 @@ MonoBehaviour:
   stats: {fileID: 4423724882531974068}
   help: {fileID: 8035161253222727604}
   gameOver: {fileID: 4209202330980219786}
+  killCountToWin: 10
 --- !u!114 &7298400724311291302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6912,7 +6914,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6034524566085953111}
-  - component: {fileID: 3557198231333957948}
   - component: {fileID: 7698013971790388408}
   m_Layer: 5
   m_Name: New Weapon Menu
@@ -6948,32 +6949,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 36}
   m_SizeDelta: {x: 256, y: 256}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &3557198231333957948
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6505119296758413273}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 596c16ceda382094bb544ea45272cec7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rt: {fileID: 0}
-  useGamepad: 1
-  useLazySelection: 1
-  useSelectionFollower: 0
-  selectionFollowerContainer: {fileID: 0}
-  textLabel: {fileID: 0}
-  elements:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  globalOffset: 45
-  currentAngle: 0
-  index: 0
 --- !u!225 &7698013971790388408
 CanvasGroup:
   m_ObjectHideFlags: 0

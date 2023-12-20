@@ -15,7 +15,10 @@ public class Spawner : MonoBehaviour
     IEnumerator Spawn() {
         while (true) {
             yield return new WaitForSeconds(spawnPeriod);
-            Instantiate(enemyPrefab, this.transform.position, Quaternion.identity);
+            if (DataHolder.spawnedEnemiesCount - DataHolder.killedEnemiesCount < DataHolder.maxEnemiesCount)
+            {
+                Instantiate(enemyPrefab, this.transform.position, Quaternion.identity);
+            }
         }
     }
 }

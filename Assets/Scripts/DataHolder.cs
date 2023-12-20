@@ -17,8 +17,8 @@ public static class DataHolder
     // Game settings
     public static int maxHP = 1200;
     public static int currentHP = 1200;
-    public static int maxShield = 500;
-    public static int currentShield = 0;
+    public static int maxEnemiesCount = 10;
+    public static int spawnedEnemiesCount = 0;
 
     public static int AnkleGrabberDamage = 150;
     public static int bulletCount = 100;

@@ -66,8 +66,6 @@ public class BonusLogic : MonoBehaviour
             case BonusType.Shields:
                 if (DataHolder._shieldsCount >= amount)
                 {
-                    DataHolder.currentShield += (250 * amount);
-                    DataHolder._shieldsCount -= amount;
                     shieldStartTime = Time.time;
                     DataHolder.shieldActivated = true;
                 }

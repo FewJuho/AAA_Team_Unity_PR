@@ -57,7 +57,6 @@ public class Enemy : MonoBehaviour
             // TODO: add animation before nonexistence
             ++DataHolder.killedEnemiesCount;
             Debug.Log("Kill " + DataHolder.killedEnemiesCount.ToString());
-            Instantiate(ammoPrefab, this.transform.position,  Quaternion.identity);
             animator.SetBool("Dies", true);
             StartCoroutine(DeathAnimation());
         }
@@ -66,6 +65,7 @@ public class Enemy : MonoBehaviour
     IEnumerator DeathAnimation()
     {
         yield return new WaitForSeconds(2.0f);
+        Instantiate(ammoPrefab, this.transform.position,  Quaternion.identity);
         Destroy(this.transform.gameObject);
     }
 

@@ -55,14 +55,14 @@ public class Shooting : MonoBehaviour
         bullet.transform.Rotate(90.0f, 0.0f, 0.0f);
         bullet.GetComponent<LaserBullet>().GetPoint(targetPoint);
 
-        // if (currentWeapon.GetRangeRadius() < hit.distance) {
-        //     Debug.Log("Hitted object is too far away");
-        //     return;
-        // }
+        if (currentWeapon.GetRangeRadius() < hit.distance) {
+            Debug.Log("Hitted object is too far away");
+            return;
+        }
 
         Enemy enemy = hitted_object.GetComponent<Enemy>();
         if (null != enemy) {
-            enemy.ReactToDamage(currentWeapon.GetDamage());
+            enemy.ReactToDamage(currentWeapon.GetDamage() * DataHolder.damageMultiplier);
         }
     }
 }

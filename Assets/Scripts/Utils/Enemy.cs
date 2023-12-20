@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,8 +27,8 @@ public class Enemy : MonoBehaviour
         transform.position += transform.forward * speed * Time.deltaTime;
     }
 
-    public void ReactToDamage(int damage) {
-        healthPoints -= damage;
+    public void ReactToDamage(float damage) {
+        healthPoints -= (int) Math.Round(damage);
         if (healthPoints <= 0) {
             // TODO: add animation before nonexistence
             ++DataHolder.killedEnemiesCount;

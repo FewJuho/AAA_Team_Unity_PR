@@ -8431,6 +8431,10 @@ PrefabInstance:
       propertyPath: jetpackAudio
       value: 
       objectReference: {fileID: 8300000, guid: 3e0edb854f326314d8050f0baf378583, type: 3}
+    - target: {fileID: 3218246871887263035, guid: 260abcc8f97dbb14d8640d873967d425, type: 3}
+      propertyPath: shotgunPickupAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 4de8e95d50085114fa8c6bad74abf782, type: 3}
     - target: {fileID: 4140654703584103087, guid: 260abcc8f97dbb14d8640d873967d425, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.974
@@ -8475,6 +8479,10 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 7009698276483947007, guid: 260abcc8f97dbb14d8640d873967d425, type: 3}
+      propertyPath: bulletPickupAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 744f9b6bdfdd9d24481649c95343be2f, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

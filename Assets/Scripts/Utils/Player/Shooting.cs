@@ -9,6 +9,11 @@ public class Shooting : MonoBehaviour
     [SerializeField] GameObject _bullet;
     [SerializeField] Transform _gunNozzle;
     [SerializeField] Vector3 targetPoint;
+    public AudioClip hammerPunchAudio;
+    public AudioClip pistolPunchAudio;
+    public AudioClip shotgunPunchAudio;
+    public AudioClip riflePunchAudio;
+    public AudioClip lowBulletsAudio;
 
     void Start()
     {
@@ -34,10 +39,27 @@ public class Shooting : MonoBehaviour
 
         Debug.Assert(DataHolder.bulletCount >= 0);
         if (DataHolder.bulletCount < currentWeapon.GetAmmoPrice()) {
-            Debug.Log("ran out of bullets");
-            // Do nothing now
-            // TODO: add sound effect?
+            GetComponent<AudioSource>().PlayOneShot(lowBulletsAudio);
             return;
+        }
+
+        if (DataHolder.currentWeapon == Weapon.Type.Hammer) {
+            GetComponent<AudioSource>().PlayOneShot(hammerPunchAudio);
+        }
+
+        if (DataHolder.currentWeapon == Weapon.Type.Pistol)
+        {
+            GetComponent<AudioSource>().PlayOneShot(pistolPunchAudio);
+        }
+
+        if (DataHolder.currentWeapon == Weapon.Type.Rifle)
+        {
+            GetComponent<AudioSource>().PlayOneShot(riflePunchAudio);
+        }
+
+        if (DataHolder.currentWeapon == Weapon.Type.Shotgun)
+        {
+            GetComponent<AudioSource>().PlayOneShot(shotgunPunchAudio);
         }
 
         Debug.Log("Shoot");

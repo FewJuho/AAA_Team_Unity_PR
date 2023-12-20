@@ -5342,8 +5342,9 @@ MonoBehaviour:
   speed: 5
   hitDamage: 50
   ammoPrefab: {fileID: 1893084404789564, guid: 80fd2cce9b40b014c86e67da5c626713, type: 3}
-  deathAudio: {fileID: 8300000, guid: c139189518e6b3b45ad0c04272f2e3d2, type: 3}
+  deathAudio: {fileID: 8300000, guid: 842265b9358233b4b912d7e18ea89617, type: 3}
   attackAudio: {fileID: 8300000, guid: e9efd3a37ee069b48833d4030868310e, type: 3}
+  damageAudio: {fileID: 8300000, guid: c139189518e6b3b45ad0c04272f2e3d2, type: 3}
 --- !u!65 &2561443515590782777
 BoxCollider:
   m_ObjectHideFlags: 0

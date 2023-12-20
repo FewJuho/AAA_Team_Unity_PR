@@ -7,6 +7,7 @@ public class Body : MonoBehaviour
 {
     public float collisionCooldown = 0.1f;
     public bool isCollisionAvailable = true;
+    public AudioClip bulletPickupAudio;
 
     void OnCollisionEnter(Collision collision) {
         if (!isCollisionAvailable) {
@@ -35,6 +36,8 @@ public class Body : MonoBehaviour
         if ("Ammo" != collider.tag) {
             return;
         }
+
+        GetComponent<AudioSource>().PlayOneShot(bulletPickupAudio);
 
         DataHolder.bulletCount += DataHolder.bulletCountAtCrate;
         Destroy(collider.gameObject);

@@ -11,6 +11,11 @@ public class WeaponTEST : MonoBehaviour
     public GameObject radialMenu;
     public GameObject crosshair;
 
+    public AudioClip hammerPickupAudio;
+    public AudioClip pistolPickupAudio;
+    public AudioClip shotgunPickupAudio;
+    public AudioClip riflePickupAudio;
+
     void Start()
     {
         DataHolder.currentWeapon = Weapon.Type.None;
@@ -29,6 +34,7 @@ public class WeaponTEST : MonoBehaviour
         HideWeapon(rifle);
         HideWeapon(shotgun);
         Resume();
+        GetComponent<AudioSource>().PlayOneShot(hammerPickupAudio);
     }
 
     public void SetPistol()
@@ -39,6 +45,7 @@ public class WeaponTEST : MonoBehaviour
         HideWeapon(rifle);
         HideWeapon(shotgun);
         Resume();
+        GetComponent<AudioSource>().PlayOneShot(pistolPickupAudio);
     }
 
     public void SetRifle()
@@ -49,6 +56,7 @@ public class WeaponTEST : MonoBehaviour
         ShowWeapon(rifle);
         HideWeapon(shotgun);
         Resume();
+        GetComponent<AudioSource>().PlayOneShot(riflePickupAudio);
     }
 
     public void SetShotgun()
@@ -59,6 +67,7 @@ public class WeaponTEST : MonoBehaviour
         HideWeapon(rifle);
         ShowWeapon(shotgun);
         Resume();
+        GetComponent<AudioSource>().PlayOneShot(shotgunPickupAudio);
     }
 
 

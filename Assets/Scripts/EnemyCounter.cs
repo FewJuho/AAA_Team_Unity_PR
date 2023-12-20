@@ -7,8 +7,9 @@ public class EnemyCounter : MonoBehaviour
 {
     public Text enemyCounter;
 
+    public ElementToggle toggle;
     void Update()
     {
-        enemyCounter.text = "Enemies Left: " + (10 - DataHolder.killedEnemiesCount).ToString();
+        enemyCounter.text = "Enemies Left: " + (toggle.killCountToWin - DataHolder.killedEnemiesCount).ToString();
     }
 }

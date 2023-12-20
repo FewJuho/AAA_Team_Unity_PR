@@ -70,7 +70,7 @@ public class ElementToggle : MonoBehaviour
                 Pause();            
         }
 
-        if (DataHolder.killedEnemiesCount >= 10) {
+        if (DataHolder.killedEnemiesCount >= killCountToWin) {
             gameWin();
         }
 

@@ -30,6 +30,10 @@ public class LaserBullet : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         GameObject col = collision.gameObject;
+        if (col.name == "v2.0") {
+            return;
+        }
+        Debug.Log(col);
         if (col.CompareTag(_wallTags))
         {
             Debug.Log("Wall Hit");

@@ -64,7 +64,7 @@ public class Shooting : MonoBehaviour
 
         Enemy enemy = hitted_object.GetComponent<Enemy>();
         if (null != enemy) {
-            enemy.ReactToDamage(currentWeapon.GetDamage() * DataHolder.damageMultiplier);
+            enemy.ReactToDamage(currentWeapon.GetDamage() * (int)DataHolder.damageMultiplier);
         }
     }
 }

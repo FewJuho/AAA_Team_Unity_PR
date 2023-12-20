@@ -26,7 +26,7 @@ public class StatsManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.H))  // TODO delete
         {
-            minusHP(100);
+            plusHP(100);
         } 
         if (Input.GetKeyDown(KeyCode.B))
         {
@@ -64,6 +64,11 @@ public class StatsManager : MonoBehaviour
         if (DataHolder.currentHP > 0) {
             elementToggle.playDamageLightAnim();
         }
+    }
+
+    public void plusHP(int hpCount)
+    {
+        DataHolder.currentHP = Math.Max(DataHolder.currentHP + hpCount, 0); 
     }
 
     public void minusBullets(int bulletCount) {

@@ -1,4 +1,3 @@
-using GLTF.Schema;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -13,12 +12,14 @@ public class Enemy : MonoBehaviour
     public float speed = 2.0f;
     public int hitDamage = 250;
     public GameObject ammoPrefab;
-
+    public AudioClip deathAudio;
+    public AudioClip attackAudio;
     private GameObject _player;
-
+    private bool attackAudioIsPlaying = false;
     void Start()
     {
         _player = GameObject.Find("v2.0");
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -36,6 +37,10 @@ public class Enemy : MonoBehaviour
         if (Vector3.Distance(transform.position, _player.transform.position) < 5.0f)
         {
             animator.SetTrigger("BiteTrigger");
+            if (!attackAudioIsPlaying)
+            {
+                StartCoroutine(AttackAudio());
+            }
         }
     }
 
@@ -48,6 +53,7 @@ public class Enemy : MonoBehaviour
         animator.SetTrigger("HitTrigger");
         if (healthPoints <= 0) {
             isdead = true;
+            GetComponent<AudioSource>().PlayOneShot(deathAudio);
             // TODO: add animation before nonexistence
             ++DataHolder.killedEnemiesCount;
             Debug.Log("Kill " + DataHolder.killedEnemiesCount.ToString());
@@ -61,5 +67,13 @@ public class Enemy : MonoBehaviour
     {
         yield return new WaitForSeconds(2.0f);
         Destroy(this.transform.gameObject);
+    }
+    IEnumerator AttackAudio()
+    {
+        attackAudioIsPlaying = true;
+        yield return new WaitForSeconds(2.0f);
+        GetComponent<AudioSource>().PlayOneShot(attackAudio);
+        yield return new WaitForSeconds(4.0f);
+        attackAudioIsPlaying = false;
     }
 }

@@ -18,6 +18,9 @@ public class ElementToggle : MonoBehaviour
     public GameObject help;
     public GameObject gameOver;
     public int killCountToWin = 10;
+    public bool useApplause = false;
+
+    public AudioClip ApplauseAudio;
 
     void Start() 
     {
@@ -71,7 +74,33 @@ public class ElementToggle : MonoBehaviour
         }
 
         if (DataHolder.killedEnemiesCount >= killCountToWin) {
-            gameWin();
+            if (useApplause)
+            {
+                GetComponent<AudioSource>().PlayOneShot(ApplauseAudio);
+                gameOver.transform.Find("Text").GetComponent<Text>().text = "Congratulations!";
+                if (DataHolder._currentLevel == DataHolder._openLevels)
+                {
+                    DataHolder._openLevels += 1;
+                }
+                DataHolder.killedEnemiesCount = 0;
+                stats.SetActive(false);
+                radialMenu.SetActive(false);
+                crosshair.SetActive(false);
+                pauseMenu.SetActive(false);
+
+                DataHolder._globalPause = false;
+                Time.timeScale = 1f;
+                gameIsPaused = false;
+                DataHolder._stopMouseFollowing = false;
+                Cursor.lockState = CursorLockMode.None;
+
+                gameOver.SetActive(true);
+                anim.StopPlayback();
+                anim.Play("GameOverOn");
+            } else
+            {
+                gameWin();
+            }
         }
 
         BonusLogic.UpdateDamageMultiplier();

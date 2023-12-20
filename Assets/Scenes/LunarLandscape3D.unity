@@ -8398,26 +8398,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1557004624499384488, guid: 260abcc8f97dbb14d8640d873967d425, type: 3}
-      propertyPath: missingAudio
-      value: 
-      objectReference: {fileID: 8300000, guid: 58f096a30a880544fb937d832b418e0b, type: 3}
-    - target: {fileID: 1557004624499384488, guid: 260abcc8f97dbb14d8640d873967d425, type: 3}
-      propertyPath: healPickupAudio
-      value: 
-      objectReference: {fileID: 8300000, guid: baf25c63e7a22204a9db5cc958691663, type: 3}
-    - target: {fileID: 1557004624499384488, guid: 260abcc8f97dbb14d8640d873967d425, type: 3}
-      propertyPath: shieldPickupAudio
-      value: 
-      objectReference: {fileID: 8300000, guid: b38c9bd0b78aaf5409a3a6c4318aa27c, type: 3}
-    - target: {fileID: 1557004624499384488, guid: 260abcc8f97dbb14d8640d873967d425, type: 3}
-      propertyPath: jetpackPickupAudio
-      value: 
-      objectReference: {fileID: 8300000, guid: 33eb19f926441c84b9620ea764737018, type: 3}
-    - target: {fileID: 1557004624499384488, guid: 260abcc8f97dbb14d8640d873967d425, type: 3}
-      propertyPath: adrenalinePickupAudio
-      value: 
-      objectReference: {fileID: 8300000, guid: 561e15b7c3832c143bee90f7a3a7c6bb, type: 3}
     - target: {fileID: 1625945936157862349, guid: 260abcc8f97dbb14d8640d873967d425, type: 3}
       propertyPath: m_Name
       value: v2.0
@@ -8426,54 +8406,18 @@ PrefabInstance:
       propertyPath: toggle
       value: 
       objectReference: {fileID: 1735073148}
-    - target: {fileID: 1943279794181448858, guid: 260abcc8f97dbb14d8640d873967d425, type: 3}
-      propertyPath: lowBulletsAudio
-      value: 
-      objectReference: {fileID: 8300000, guid: 68ecdb4919c2af8499fb8327efc39666, type: 3}
-    - target: {fileID: 1943279794181448858, guid: 260abcc8f97dbb14d8640d873967d425, type: 3}
-      propertyPath: riflePunchAudio
-      value: 
-      objectReference: {fileID: 8300000, guid: 5990628eac80db6449f4083f54ed0033, type: 3}
-    - target: {fileID: 1943279794181448858, guid: 260abcc8f97dbb14d8640d873967d425, type: 3}
-      propertyPath: hammerPunchAudio
-      value: 
-      objectReference: {fileID: 8300000, guid: a86b915ce1d97a442983b24b3fc2454f, type: 3}
-    - target: {fileID: 1943279794181448858, guid: 260abcc8f97dbb14d8640d873967d425, type: 3}
-      propertyPath: pistolPunchAudio
-      value: 
-      objectReference: {fileID: 8300000, guid: 137cbdd69b6d8e14a94591cc8d60fe83, type: 3}
-    - target: {fileID: 1943279794181448858, guid: 260abcc8f97dbb14d8640d873967d425, type: 3}
-      propertyPath: shotgunPunchAudio
-      value: 
-      objectReference: {fileID: 8300000, guid: 2479c6c7534d29345a4179cfc9c32ace, type: 3}
-    - target: {fileID: 2647597178480598891, guid: 260abcc8f97dbb14d8640d873967d425, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.14
+    - target: {fileID: 1760671782625869286, guid: 260abcc8f97dbb14d8640d873967d425, type: 3}
+      propertyPath: useApplause
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2647597178480598891, guid: 260abcc8f97dbb14d8640d873967d425, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.27
+    - target: {fileID: 1760671782625869286, guid: 260abcc8f97dbb14d8640d873967d425, type: 3}
+      propertyPath: ApplauseAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: abd23e3659ddade4c838f8ffbcfe01a4, type: 3}
+    - target: {fileID: 1760671782625869286, guid: 260abcc8f97dbb14d8640d873967d425, type: 3}
+      propertyPath: killCountToWin
+      value: 15
       objectReference: {fileID: 0}
-    - target: {fileID: 3035153405249809416, guid: 260abcc8f97dbb14d8640d873967d425, type: 3}
-      propertyPath: jetpackAudio
-      value: 
-      objectReference: {fileID: 8300000, guid: 3e0edb854f326314d8050f0baf378583, type: 3}
-    - target: {fileID: 3218246871887263035, guid: 260abcc8f97dbb14d8640d873967d425, type: 3}
-      propertyPath: riflePickupAudio
-      value: 
-      objectReference: {fileID: 8300000, guid: 0beddf270d8fdfa4f910e3e13ab4bcdc, type: 3}
-    - target: {fileID: 3218246871887263035, guid: 260abcc8f97dbb14d8640d873967d425, type: 3}
-      propertyPath: hammerPickupAudio
-      value: 
-      objectReference: {fileID: 8300000, guid: 7475b75ce53a86e4b9e3b60602141437, type: 3}
-    - target: {fileID: 3218246871887263035, guid: 260abcc8f97dbb14d8640d873967d425, type: 3}
-      propertyPath: pistolPickupAudio
-      value: 
-      objectReference: {fileID: 8300000, guid: 5e866b989230245459456359f9391198, type: 3}
-    - target: {fileID: 3218246871887263035, guid: 260abcc8f97dbb14d8640d873967d425, type: 3}
-      propertyPath: shotgunPickupAudio
-      value: 
-      objectReference: {fileID: 8300000, guid: 4de8e95d50085114fa8c6bad74abf782, type: 3}
     - target: {fileID: 4140654703584103087, guid: 260abcc8f97dbb14d8640d873967d425, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.974
@@ -8514,18 +8458,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4733705939760466917, guid: 260abcc8f97dbb14d8640d873967d425, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6505119296758413273, guid: 260abcc8f97dbb14d8640d873967d425, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7009698276483947007, guid: 260abcc8f97dbb14d8640d873967d425, type: 3}
-      propertyPath: bulletPickupAudio
-      value: 
-      objectReference: {fileID: 8300000, guid: 744f9b6bdfdd9d24481649c95343be2f, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

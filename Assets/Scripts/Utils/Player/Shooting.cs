@@ -48,12 +48,14 @@ public class Shooting : MonoBehaviour
         }
 
         GameObject hitted_object = hit.transform.gameObject;
-
-        targetPoint = hit.point;
         Debug.Log("Try to hit " + hitted_object.name + " at distance " + hit.distance.ToString());
-        GameObject bullet = GameObject.Instantiate(_bullet, _gunNozzle.position, _gunNozzle.rotation);
-        bullet.transform.Rotate(90.0f, 0.0f, 0.0f);
-        bullet.GetComponent<LaserBullet>().GetPoint(targetPoint);
+
+        if (currentWeapon.HasBullets()) {
+            targetPoint = hit.point;
+            GameObject bullet = GameObject.Instantiate(_bullet, _gunNozzle.position, _gunNozzle.rotation);
+            bullet.transform.Rotate(90.0f, 0.0f, 0.0f);
+            bullet.GetComponent<LaserBullet>().GetPoint(targetPoint);
+        }
 
         if (currentWeapon.GetRangeRadius() < hit.distance) {
             Debug.Log("Hitted object is too far away");

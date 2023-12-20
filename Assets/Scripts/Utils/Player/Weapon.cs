@@ -21,6 +21,10 @@ public abstract class Weapon {
         return null;
     }
 
+    public virtual bool HasBullets() {
+        return true;
+    }
+
     public static Weapon FromType(Type weaponType) {
         switch (weaponType  ) 
         {
@@ -53,6 +57,10 @@ public class _Hammer : Weapon
 
     public override int GetRangeRadius() {
         return 2;
+    }
+    
+    public override bool HasBullets() {
+        return false;
     }
 }
 

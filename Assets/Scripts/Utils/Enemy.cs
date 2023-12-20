@@ -14,6 +14,8 @@ public class Enemy : MonoBehaviour
     public GameObject ammoPrefab;
     public AudioClip deathAudio;
     public AudioClip attackAudio;
+    public AudioClip damageAudio;
+
     private GameObject _player;
     private bool attackAudioIsPlaying = false;
     void Start()
@@ -50,6 +52,8 @@ public class Enemy : MonoBehaviour
             return;
         }
         healthPoints -= damage * (int)DataHolder.damageMultiplier;
+        GetComponent<AudioSource>().PlayOneShot(damageAudio);
+
         animator.SetTrigger("HitTrigger");
         if (healthPoints <= 0) {
             isDead = true;
@@ -74,20 +78,6 @@ public class Enemy : MonoBehaviour
         attackAudioIsPlaying = true;
         yield return new WaitForSeconds(2.0f);
         GetComponent<AudioSource>().PlayOneShot(attackAudio);
-        Debug.Log("SOUND");
-        Debug.Log("SOUND");
-        Debug.Log("SOUND");
-
-        Debug.Log("SOUND");
-
-        Debug.Log("SOUND");
-
-        Debug.Log("SOUND");
-        Debug.Log("SOUND");
-
-
-
-
         yield return new WaitForSeconds(4.0f);
         attackAudioIsPlaying = false;
     }

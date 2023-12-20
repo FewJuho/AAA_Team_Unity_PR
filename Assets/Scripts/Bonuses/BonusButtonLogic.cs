@@ -26,13 +26,23 @@ public class BonusButtonLogic : MonoBehaviour
 
     public GameObject shieldCanvas;
     public BonusTimer shieldTimer;
+
+    public AudioClip jetpackPickupAudio;
+    public AudioClip healPickupAudio;
+    public AudioClip adrenalinePickupAudio;
+    public AudioClip shieldPickupAudio;
+    public AudioClip missingAudio;
+
     public void Heal()
     {
+        GetComponent<AudioSource>().PlayOneShot(missingAudio);
+
         if (DataHolder._healsCount > 0 && DataHolder.maxHP != DataHolder.currentHP)
         {
             healpack.SetActive(true);
             BonusLogic.ConsumeBonus(BonusLogic.BonusType.Heals, 1);
             healAnim.SetTrigger("HealTrigger");
+            GetComponent<AudioSource>().PlayOneShot(healPickupAudio);
         }
     }
 
@@ -44,6 +54,7 @@ public class BonusButtonLogic : MonoBehaviour
             jetpackAnim.SetTrigger("JetpackTrigger");
             jetpackCanvas.SetActive(true);
             jetpackTimer.StartTimer();
+            GetComponent<AudioSource>().PlayOneShot(jetpackPickupAudio);
 
             if (DataHolder.jatpackActivated)
             {
@@ -59,6 +70,8 @@ public class BonusButtonLogic : MonoBehaviour
     {
         if (DataHolder._damageUpsCount > 0)
         {
+            GetComponent<AudioSource>().PlayOneShot(adrenalinePickupAudio);
+
             damagepack.SetActive(true);
             damageAnim.SetTrigger("DamageTrigger");
             damageCanvas.SetActive(true);
@@ -77,6 +90,8 @@ public class BonusButtonLogic : MonoBehaviour
     {
         if (DataHolder._shieldsCount > 0)
         {
+            GetComponent<AudioSource>().PlayOneShot(shieldPickupAudio);
+
             shieldpack.SetActive(true);
             shieldAnim.SetTrigger("ShieldTrigger");
             shieldCanvas.SetActive(true);

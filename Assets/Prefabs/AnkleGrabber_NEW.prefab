@@ -5339,7 +5339,7 @@ MonoBehaviour:
   healthPoints: 100
   isDead: 0
   animator: {fileID: 2491012952059719437}
-  speed: 5
+  speed: 4
   hitDamage: 50
   ammoPrefab: {fileID: 1893084404789564, guid: 80fd2cce9b40b014c86e67da5c626713, type: 3}
   deathAudio: {fileID: 8300000, guid: 842265b9358233b4b912d7e18ea89617, type: 3}

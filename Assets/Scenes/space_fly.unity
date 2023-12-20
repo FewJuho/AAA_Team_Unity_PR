@@ -5284,9 +5284,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: v2.0
       objectReference: {fileID: 0}
-    - target: {fileID: 1760671782625869286, guid: 260abcc8f97dbb14d8640d873967d425, type: 3}
-      propertyPath: useApplause
-      value: 1
+    - target: {fileID: 2647597178480598891, guid: 260abcc8f97dbb14d8640d873967d425, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.296
+      objectReference: {fileID: 0}
+    - target: {fileID: 2647597178480598891, guid: 260abcc8f97dbb14d8640d873967d425, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 2647597178480598891, guid: 260abcc8f97dbb14d8640d873967d425, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.007
       objectReference: {fileID: 0}
     - target: {fileID: 4140654703584103087, guid: 260abcc8f97dbb14d8640d873967d425, type: 3}
       propertyPath: m_LocalPosition.x

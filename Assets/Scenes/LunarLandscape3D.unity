@@ -8416,7 +8416,7 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: abd23e3659ddade4c838f8ffbcfe01a4, type: 3}
     - target: {fileID: 1760671782625869286, guid: 260abcc8f97dbb14d8640d873967d425, type: 3}
       propertyPath: killCountToWin
-      value: 15
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4140654703584103087, guid: 260abcc8f97dbb14d8640d873967d425, type: 3}
       propertyPath: m_LocalPosition.x

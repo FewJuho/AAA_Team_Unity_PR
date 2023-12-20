@@ -11,6 +11,9 @@ public abstract class Weapon {
     public virtual bool IsShooting() {
         return Input.GetMouseButtonDown(0);
     }
+    public virtual Transform GetBulletSource(Transform models) {
+        return null;
+    }
 
     public static Weapon FromType(Type weaponType) {
         switch (weaponType  ) 
@@ -61,6 +64,10 @@ public class _Shotgun : Weapon
         return 10;
     }
 
+    public override Transform GetBulletSource(Transform models) {
+        return models.Find("ShotgunModel").Find("PartA").Find("BulletSource");
+    }
+
     // TODO: implement?
     public static int getScaler(GameObject target)
     {
@@ -80,6 +87,10 @@ public class _Pistol : Weapon
 
     public override int GetRangeRadius() {
         return 10;
+    }
+
+    public override Transform GetBulletSource(Transform models) {
+        return models.Find("PistolModel").Find("BulletSource");
     }
     public static int damage = 25;
     public static int ammoPrice = 2;
@@ -118,6 +129,11 @@ public class _NoneWeapon : Weapon
 
     public override int GetRangeRadius() {
         return 0;
+    }
+
+    public override bool IsShooting()
+    {
+        return false;
     }
 
     public static int damage = 0;

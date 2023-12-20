@@ -35,7 +35,7 @@ public abstract class Weapon {
 public class _Hammer : Weapon
 {
     public override int GetDamage() {
-        return 100;
+        return 50;
     }
 
     public override int GetAmmoPrice() {
@@ -43,7 +43,7 @@ public class _Hammer : Weapon
     }
 
     public override int GetRangeRadius() {
-        return 2;
+        return 3;
     }
 }
 
@@ -79,7 +79,7 @@ public class _Pistol : Weapon
     }
 
     public override int GetRangeRadius() {
-        return 10;
+        return 20;
     }
     public static int damage = 25;
     public static int ammoPrice = 2;
@@ -89,7 +89,7 @@ public class _Pistol : Weapon
 public class _Rifle : Weapon
 {
     public override int GetDamage() {
-        return 10;
+        return 5;
     }
 
     public override int GetAmmoPrice() {
@@ -97,7 +97,7 @@ public class _Rifle : Weapon
     }
 
     public override int GetRangeRadius() {
-        return 10;
+        return 20;
     }
 
     public override bool IsShooting()

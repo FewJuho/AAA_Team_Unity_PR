@@ -7,7 +7,7 @@ public class Enemy : MonoBehaviour
     public int healthPoints = 100; // TODO: different enemies?
 
     public float speed = 2.0f;
-    public int hitDamage = 50;
+    public int hitDamage = 250;
     public GameObject ammoPrefab;
 
     private GameObject _player;
@@ -27,7 +27,7 @@ public class Enemy : MonoBehaviour
     }
 
     public void ReactToDamage(int damage) {
-        healthPoints -= damage;
+        healthPoints -= damage * (int)DataHolder.damageMultiplier;
         if (healthPoints <= 0) {
             // TODO: add animation before nonexistence
             ++DataHolder.killedEnemiesCount;

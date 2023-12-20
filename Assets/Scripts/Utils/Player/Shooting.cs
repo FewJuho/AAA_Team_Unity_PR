@@ -5,10 +5,11 @@ using UnityEngine;
 public class Shooting : MonoBehaviour
 {
     private Camera _camera;
+    private float lastClickTime;
     [SerializeField] GameObject _bullet;
     [SerializeField] Transform _gunNozzle;
     [SerializeField] Vector3 targetPoint;
-
+    
     void Start()
     {
         _camera = GetComponent<Camera>();
@@ -34,7 +35,23 @@ public class Shooting : MonoBehaviour
             return;
         }
 
-        Debug.Log("Shoot");
+        if (DataHolder.currentWeapon == Weapon.Type.Rifle)
+        {
+            if (Time.time - lastClickTime < 0.05f)
+            {
+                return;
+            }
+            lastClickTime = Time.time;
+        }
+
+        if (DataHolder.currentWeapon == Weapon.Type.Hammer)
+        {
+            if (Time.time - lastClickTime < 1f)
+            {
+                return;
+            }
+            lastClickTime = Time.time;
+        }
         DataHolder.bulletCount -= currentWeapon.GetAmmoPrice();
 
         Vector3 screen_center = new Vector3(Screen.width / 2, Screen.height / 2, 0);
@@ -50,13 +67,16 @@ public class Shooting : MonoBehaviour
         targetPoint = hit.point;
         GameObject hitted_object = hit.transform.gameObject;
         Debug.Log("Try to hit " + hitted_object.name + " at distance " + hit.distance.ToString());
-        GameObject bullet = GameObject.Instantiate(_bullet, _gunNozzle.position, _gunNozzle.rotation);
-        bullet.GetComponent<LaserBullet>().GetPoint(targetPoint);
+        if (DataHolder.currentWeapon != Weapon.Type.Hammer) {
+            GameObject bullet = GameObject.Instantiate(_bullet, _gunNozzle.position, _gunNozzle.rotation);
+            bullet.GetComponent<LaserBullet>().GetPoint(targetPoint);
+        }
+       
 
-        // if (currentWeapon.GetRangeRadius() < hit.distance) {
-        //     Debug.Log("Hitted object is too far away");
-        //     return;
-        // }
+        if (currentWeapon.GetRangeRadius() < hit.distance) {
+             Debug.Log("Hitted object is too far away");
+             return;
+        }
 
         Enemy enemy = hitted_object.GetComponent<Enemy>();
         if (null != enemy) {

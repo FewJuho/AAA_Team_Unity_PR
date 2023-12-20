@@ -20,6 +20,7 @@ public static class DataHolder
     public static int maxShield = 500;
     public static int currentShield = 0;
 
+    public static int AnkleGrabberDamage = 250;
     public static int bulletCount = 100;
     public static int killedEnemiesCount = 0;
     public const int bulletCountAtCrate = 10;

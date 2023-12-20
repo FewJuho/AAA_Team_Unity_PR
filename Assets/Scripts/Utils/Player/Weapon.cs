@@ -56,7 +56,7 @@ public class _Hammer : Weapon
     }
 
     public override int GetRangeRadius() {
-        return 2;
+        return 3;
     }
     
     public override bool HasBullets() {

@@ -19,6 +19,10 @@ public class Body : MonoBehaviour
             return;
         }
 
+        if (enemy.isDead) {
+            return;
+        }
+
         Debug.Log("Collide with " + collision.gameObject.name);
         if (!DataHolder.shieldActivated)
         {

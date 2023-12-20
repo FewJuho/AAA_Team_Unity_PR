@@ -7,7 +7,7 @@ public class Enemy : MonoBehaviour
 {
     public int healthPoints = 100; // TODO: different enemies?
 
-    private bool isdead = false;
+    public bool isDead = false;
     public Animator animator;
     public float speed = 2.0f;
     public int hitDamage = 250;
@@ -24,7 +24,7 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
-        if (isdead)
+        if (isDead)
         {
             return;
         }
@@ -45,14 +45,14 @@ public class Enemy : MonoBehaviour
     }
 
     public void ReactToDamage(int damage) {
-        if (isdead)
+        if (isDead)
         {
             return;
         }
         healthPoints -= damage * (int)DataHolder.damageMultiplier;
         animator.SetTrigger("HitTrigger");
         if (healthPoints <= 0) {
-            isdead = true;
+            isDead = true;
             GetComponent<AudioSource>().PlayOneShot(deathAudio);
             // TODO: add animation before nonexistence
             ++DataHolder.killedEnemiesCount;
@@ -68,6 +68,7 @@ public class Enemy : MonoBehaviour
         yield return new WaitForSeconds(2.0f);
         Destroy(this.transform.gameObject);
     }
+
     IEnumerator AttackAudio()
     {
         attackAudioIsPlaying = true;

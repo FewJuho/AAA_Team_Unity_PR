@@ -7,7 +7,18 @@ public class BonusLogic : MonoBehaviour
     private static float damageMultiplierStartTime;
     private static float jatpackStartTime;
     private static float shieldStartTime;
+    public AudioClip jetpackPickupAudio;
+    public AudioClip healPickupAudio;
+    public AudioClip adrenalinePickupAudio;
+    public AudioClip shieldPickupAudio;
+    public AudioClip missingAudio;
+    private AudioSource audioSource;
 
+
+    private void Start()
+    {
+        audioSource = gameObject.GetComponent<AudioSource>();
+    }
     public enum BonusType
     {
         Heals,
@@ -40,14 +51,16 @@ public class BonusLogic : MonoBehaviour
         switch (bonusType)
         {
             case BonusType.Heals:
-                if (DataHolder._healsCount >= amount)
+                int hpToAdd = DataHolder.maxHP - DataHolder.currentHP < 300 ? DataHolder.maxHP - DataHolder.currentHP : 300;
+                if (DataHolder._healsCount >= amount && hpToAdd > 0)
                 {
-                    int hpToAdd = DataHolder.maxHP - DataHolder.currentHP < 300 ? DataHolder.maxHP - DataHolder.currentHP : 300;
-                    if (hpToAdd > 0) {
-                        DataHolder.currentHP += (hpToAdd * amount);
-                        DataHolder._healsCount -= amount;
-                        Debug.Log("HP = " + DataHolder.currentHP);
-                    }
+                    DataHolder.currentHP += (hpToAdd * amount);
+                    DataHolder._healsCount -= amount;
+                    Debug.Log("HP = " + DataHolder.currentHP);
+
+                }
+                else
+                {
                 }
                 break;
             case BonusType.Shields:

@@ -5,6 +5,7 @@ using UnityEngine;
 public class Shooting : MonoBehaviour
 {
     private Camera _camera;
+    private bool isShootingAvailable = true;
     [SerializeField] GameObject _bullet;
     [SerializeField] Transform _gunNozzle;
     [SerializeField] Vector3 targetPoint;
@@ -18,6 +19,10 @@ public class Shooting : MonoBehaviour
     void Update()
     {
         if (DataHolder._stopMouseFollowing) {
+            return;
+        }
+
+        if (!isShootingAvailable) {
             return;
         }
 
@@ -37,6 +42,7 @@ public class Shooting : MonoBehaviour
 
         Debug.Log("Shoot");
         DataHolder.bulletCount -= currentWeapon.GetAmmoPrice();
+        StartCoroutine(ShootingCooldown(currentWeapon.GetFireRateTime()));
 
         Vector3 screen_center = new Vector3(Screen.width / 2, Screen.height / 2, 0);
         Ray ray = _camera.ScreenPointToRay(targetPoint);
@@ -66,5 +72,11 @@ public class Shooting : MonoBehaviour
         if (null != enemy) {
             enemy.ReactToDamage(currentWeapon.GetDamage() * (int)DataHolder.damageMultiplier);
         }
+    }
+
+    IEnumerator ShootingCooldown(float cooldown) {
+        isShootingAvailable = false;
+        yield return new WaitForSeconds(cooldown);
+        isShootingAvailable = true;
     }
 }

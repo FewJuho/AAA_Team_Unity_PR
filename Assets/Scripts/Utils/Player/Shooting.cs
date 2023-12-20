@@ -12,6 +12,7 @@ public class Shooting : MonoBehaviour
     void Start()
     {
         _camera = GetComponent<Camera>();
+        var models = this.transform.Find("CanvasFirstPerson").transform.Find("Weapon_Models");
     }
 
     void Update()
@@ -46,47 +47,24 @@ public class Shooting : MonoBehaviour
             return;
         }
 
-
-        targetPoint = hit.point;
         GameObject hitted_object = hit.transform.gameObject;
         Debug.Log("Try to hit " + hitted_object.name + " at distance " + hit.distance.ToString());
-        GameObject bullet = GameObject.Instantiate(_bullet, _gunNozzle.position, _gunNozzle.rotation);
-        bullet.GetComponent<LaserBullet>().GetPoint(targetPoint);
 
-        // if (currentWeapon.GetRangeRadius() < hit.distance) {
-        //     Debug.Log("Hitted object is too far away");
-        //     return;
-        // }
+        if (currentWeapon.HasBullets()) {
+            targetPoint = hit.point;
+            GameObject bullet = GameObject.Instantiate(_bullet, _gunNozzle.position, _gunNozzle.rotation);
+            bullet.transform.Rotate(90.0f, 0.0f, 0.0f);
+            bullet.GetComponent<LaserBullet>().GetPoint(targetPoint);
+        }
+
+        if (currentWeapon.GetRangeRadius() < hit.distance) {
+            Debug.Log("Hitted object is too far away");
+            return;
+        }
 
         Enemy enemy = hitted_object.GetComponent<Enemy>();
         if (null != enemy) {
-            enemy.ReactToDamage(currentWeapon.GetDamage());
-        // =======
-
-
-        // Debug.DrawLine(ray.origin, ray.GetPoint(10), Color.red, 5);
-
-        // RaycastHit hit;
-        // if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 100.0f))
-        // {
-        // targetPoint = hit.point;
-        // GameObject hitted_object = hit.transform.gameObject;
-        // Debug.Log("Hit " + hitted_object.name);
-        // GameObject bullet = GameObject.Instantiate(_bullet, _gunNozzle.position, _gunNozzle.rotation);
-        // bullet.GetComponent<LaserBullet>().GetPoint(targetPoint);
-
-        // Enemy enemy = hitted_object.GetComponent<Enemy>();
-        // if (null != enemy)
-        // {
-        // enemy.ReactToDamage(damage);
-        // }
-
-        // Debug.DrawLine(ray.origin, ray.GetPoint(10), Color.red, 5);
-
-        // Debug.Log("Shoot");
-        // —DataHolder.bulletCount;
-        // }
-        // »»»> dev
+            enemy.ReactToDamage(currentWeapon.GetDamage() * DataHolder.damageMultiplier);
         }
     }
 }
